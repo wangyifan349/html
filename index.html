@@ -201,7 +201,6 @@ const defaultData=[
 ["Advanced Expression","A comprehensive solution should take into account not only immediate benefits, but also potential consequences that may appear in the long term.","一个全面的解决方案不仅应该考虑当前利益，也应该考虑长期可能出现的潜在影响。"],
 
 ["Advanced Expression","The true value of technology lies not simply in its complexity, but in its ability to improve people's lives and solve meaningful problems.","技术真正的价值并不只是体现在复杂程度上，而是在于它改善生活和解决有意义问题的能力。"]
-]
 ];
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 function load(){let d=localStorage.getItem(storageKey);if(!d){localStorage.setItem(storageKey,JSON.stringify(defaultData));d=JSON.stringify(defaultData)}return JSON.parse(d)}
