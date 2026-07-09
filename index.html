@@ -3,46 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IELTS English Library</title>
+<title>IELTS TOEFL English Library</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-body{background:#fff4ef;font-family:"Segoe UI",Arial,sans-serif}.navbar-custom{background:#ff5722}.title{color:#ff5722;font-size:42px;font-weight:700}.subtitle{font-size:20px;color:#666}.card{border:0;border-radius:18px}.sentence-card:hover{transform:translateY(-3px);transition:.2s}.english{font-size:25px;font-weight:600;line-height:1.6;color:#222}.chinese{font-size:21px;line-height:1.7;color:#666}.tag{background:#ff5722;color:white;border-radius:20px;padding:5px 14px;font-size:14px}.form-control{font-size:18px;padding:14px}.btn-orange{background:#ff5722;color:white;font-size:18px}.btn-orange:hover{background:#e64a19;color:white}
+body{background:linear-gradient(135deg,#fff3ec,#ffe2d3);font-family:"Segoe UI",Arial,sans-serif;color:#222}.navbar-custom{background:#ff5722}.hero{background:white;border-radius:24px;padding:34px;box-shadow:0 10px 30px rgba(255,87,34,.14)}.title{color:#ff5722;font-size:44px;font-weight:800}.subtitle{font-size:21px;color:#666}.card{border:0;border-radius:20px}.sentence-card{transition:.2s}.sentence-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(255,87,34,.16)!important}.english{font-size:25px;font-weight:650;line-height:1.65;color:#222}.chinese{font-size:21px;line-height:1.75;color:#555}.tag{background:#ff5722;color:white;border-radius:20px;padding:6px 15px;font-size:15px}.form-control,.form-select{font-size:18px;padding:14px}.btn-orange{background:#ff5722;color:white;font-size:18px;border:0}.btn-orange:hover{background:#e64a19;color:white}.small-note{font-size:17px;color:#777}.counter{font-size:18px;color:#ff5722;font-weight:700}.btn-ghost{border:1px solid #ff5722;color:#ff5722;background:white}.btn-ghost:hover{background:#ff5722;color:white}
 </style>
 </head>
 <body>
-<nav class="navbar navbar-dark navbar-custom"><div class="container"><span class="navbar-brand fs-3">IELTS English Library</span></div></nav>
+<nav class="navbar navbar-dark navbar-custom"><div class="container"><span class="navbar-brand fs-3 fw-bold">IELTS · TOEFL English Library</span></div></nav>
 <div class="container py-5">
-<div class="text-center mb-5">
-<h1 class="title">Academic English Sentence Library</h1>
-<p class="subtitle">IELTS · TOEFL · Academic Writing · Advanced Expression</p>
-</div>
-<div class="card shadow-sm p-4 mb-5">
-<h3>Add Sentence</h3>
-<input id="englishInput" class="form-control mb-3" placeholder="English sentence">
-<input id="chineseInput" class="form-control mb-3" placeholder="Chinese translation">
-<button onclick="addSentence()" class="btn btn-orange">Add Sentence</button>
-</div>
+<div class="hero text-center mb-5"><h1 class="title">Advanced English Sentence Library</h1><p class="subtitle mb-1">Technology · Daily Communication · Shopping · Common Dialogue · Academic Expression</p><p class="small-note">Pure static page · LocalStorage database · GitHub Pages ready</p></div>
+<div class="card shadow-sm p-4 mb-4"><h3 class="mb-3">Add Sentence</h3><input id="englishInput" class="form-control mb-3" placeholder="English sentence"><input id="chineseInput" class="form-control mb-3" placeholder="Chinese translation"><button onclick="addSentence()" class="btn btn-orange">Add Sentence</button></div>
+<div class="card shadow-sm p-4 mb-4"><div class="row g-3"><div class="col-md-8"><input id="searchInput" oninput="render()" class="form-control" placeholder="Search English or Chinese..."></div><div class="col-md-4"><select id="categoryFilter" onchange="render()" class="form-select"><option value="All">All Categories</option></select></div></div><div class="mt-3 counter" id="counter"></div></div>
 <div id="list"></div>
 </div>
 <script>
+const storageKey="ielts_toefl_sentences_v2";
 const defaultData=[
-["Technology","The rapid development of artificial intelligence has fundamentally transformed the way people work, communicate, and solve complex problems.","人工智能的快速发展已经从根本上改变了人们工作、交流以及解决复杂问题的方式。"],
-["Education","Education should not merely provide students with theoretical knowledge; it should also cultivate critical thinking and practical abilities.","教育不应该仅仅提供理论知识，还应该培养学生的批判性思维和实践能力。"],
-["Environment","Environmental protection requires global cooperation because ecological challenges often transcend national boundaries.","环境保护需要全球合作，因为生态挑战通常超越国家边界。"],
-["Society","Social media platforms have significantly influenced public opinion by determining what information receives widespread attention.","社交媒体平台通过决定哪些信息获得广泛关注，显著影响公众观点。"],
-["Economy","Economic growth should be balanced with sustainable development to ensure long-term prosperity.","经济增长应该与可持续发展保持平衡，以确保长期繁荣。"],
-["Globalization","Globalization has created numerous opportunities while also introducing challenges related to cultural identity and economic inequality.","全球化创造了大量机会，同时也带来了文化认同和经济不平等方面的挑战。"],
-["Academic","It is widely acknowledged that technological innovation plays a crucial role in improving human living standards.","人们普遍认为，技术创新在提高人类生活水平方面发挥着关键作用。"],
-["Opinion","In my opinion, governments should adopt effective policies rather than relying solely on market mechanisms.","在我看来，政府应该采取有效政策，而不是完全依赖市场机制。"],
-["Science","Scientific research provides valuable insights into solving global challenges and improving human development.","科学研究为解决全球挑战和促进人类发展提供了重要见解。"],
-["Career","A successful career requires not only professional knowledge but also adaptability and continuous learning.","成功的职业生涯不仅需要专业知识，还需要适应能力和持续学习。"]
+["Technology","The rapid development of artificial intelligence has reshaped the way people search for information, make decisions, and complete complex tasks.","人工智能的快速发展已经重塑了人们搜索信息、做出决策以及完成复杂任务的方式。"],
+["Technology","Cloud computing allows individuals and companies to access powerful digital resources without maintaining expensive local infrastructure.","云计算让个人和公司无需维护昂贵的本地基础设施，也能访问强大的数字资源。"],
+["Technology","Modern communication tools have made remote collaboration more efficient, but they also require clearer writing and stronger time management.","现代通信工具让远程协作更加高效，但也要求更清晰的写作和更强的时间管理能力。"],
+["Technology","A well-designed application should not only be visually appealing but also stable, responsive, and easy to maintain.","一个设计良好的应用程序不仅应该视觉美观，还应该稳定、响应迅速并且易于维护。"],
+["Technology","Data security has become increasingly important because people now store a large amount of personal information online.","数据安全变得越来越重要，因为人们现在把大量个人信息存储在网上。"],
+["Technology","Automation can reduce repetitive work and allow people to focus on tasks that require creativity and judgment.","自动化可以减少重复性工作，让人们专注于需要创造力和判断力的任务。"],
+["Technology","User experience is often determined by small details, such as loading speed, readable text, and intuitive navigation.","用户体验通常由小细节决定，例如加载速度、可读文本以及直观的导航。"],
+["Technology","When a system becomes more complex, clear documentation is essential for future debugging and improvement.","当一个系统变得更加复杂时，清晰的文档对于未来调试和改进至关重要。"],
+["Technology","The reliability of a digital product depends not only on its features but also on how gracefully it handles errors.","数字产品的可靠性不仅取决于功能，也取决于它处理错误的方式是否优雅。"],
+["Technology","A practical technology should solve real problems rather than merely demonstrate impressive technical complexity.","实用的技术应该解决真实问题，而不是仅仅展示令人印象深刻的技术复杂性。"],
+["Daily Communication","I appreciate your explanation, but I would like to clarify one important detail before making a final decision.","我感谢你的解释，但在做最终决定之前，我想先确认一个重要细节。"],
+["Daily Communication","Could you please explain that in a slightly different way? I understand the general idea, but not the specific point.","你能换一种方式解释一下吗？我理解大概意思，但没有理解具体要点。"],
+["Daily Communication","That sounds reasonable to me, although I still think we should compare a few other options before choosing.","这听起来比较合理，不过我仍然认为我们应该在选择之前比较几个其他方案。"],
+["Daily Communication","I am not completely sure about the details, so I would rather check the information carefully first.","我对细节并不是完全确定，所以我更愿意先仔细核实信息。"],
+["Daily Communication","Thank you for letting me know in advance; it makes it much easier for me to adjust my schedule.","谢谢你提前告诉我，这让我更容易调整自己的安排。"],
+["Daily Communication","I understand your point, but I see the situation from a slightly different perspective.","我理解你的观点，但我从一个稍微不同的角度看待这个情况。"],
+["Daily Communication","Let me think about it for a moment, because I do not want to give you a careless answer.","让我考虑一下，因为我不想给你一个草率的回答。"],
+["Daily Communication","If I understood you correctly, you are saying that the main problem is not cost but efficiency.","如果我理解正确的话，你的意思是主要问题不是成本，而是效率。"],
+["Daily Communication","I agree with the general direction, but I think the wording could be more precise.","我同意整体方向，但我认为措辞可以更加精确。"],
+["Daily Communication","I would prefer to keep the structure simple so that everyone can understand it quickly.","我更希望保持结构简单，这样每个人都能很快理解。"],
+["Shopping","I am looking for something durable and reasonably priced rather than something that only looks fashionable.","我想找的是耐用且价格合理的东西，而不是只看起来时尚的东西。"],
+["Shopping","Could you tell me whether this product comes with a warranty or any after-sales service?","你能告诉我这个产品是否有保修或售后服务吗？"],
+["Shopping","I like the design, but I would like to compare the material and price with other similar products.","我喜欢这个设计，但我想把它的材料和价格与其他类似产品比较一下。"],
+["Shopping","Do you have this item in a larger size or a slightly different color?","这个商品有大一点的尺码或者稍微不同的颜色吗？"],
+["Shopping","The quality seems good, but the price is a little higher than I expected.","质量看起来不错，但价格比我预期的稍微高一点。"],
+["Shopping","Could you recommend a product that is suitable for daily use and not too difficult to maintain?","你能推荐一款适合日常使用并且不太难维护的产品吗？"],
+["Shopping","I would like to return this item because it does not match the description on the website.","我想退掉这个商品，因为它和网站上的描述不一致。"],
+["Shopping","Before I buy it, I want to make sure it is compatible with the device I already have.","在购买之前，我想确认它是否和我已有的设备兼容。"],
+["Shopping","Is there any discount if I buy more than one item at the same time?","如果我同时买不止一件，有折扣吗？"],
+["Shopping","I do not necessarily need the cheapest option; I need the one with the best overall value.","我不一定需要最便宜的选择，我需要的是整体性价比最高的那一个。"],
+["Common Dialogue","Could we go through the plan step by step so that we do not miss any important detail?","我们可以一步一步过一下计划吗？这样就不会漏掉任何重要细节。"],
+["Common Dialogue","I am available later this afternoon, but tomorrow morning would probably be more convenient for me.","我今天下午晚些时候有空，但明天上午对我来说可能更方便。"],
+["Common Dialogue","Please send me the details when you have time, and I will review them carefully.","你有时间的时候请把细节发给我，我会认真查看。"],
+["Common Dialogue","I think there may have been a misunderstanding, so let me explain what I actually meant.","我觉得这里可能有误解，所以让我解释一下我真正的意思。"],
+["Common Dialogue","That is not exactly what I was looking for, but it is still a useful suggestion.","这并不完全是我想找的内容，但它仍然是一个有用的建议。"],
+["Common Dialogue","Could you give me a concrete example? It would help me understand the idea more clearly.","你能给我一个具体例子吗？这会帮助我更清楚地理解这个想法。"],
+["Common Dialogue","I am sorry for the inconvenience, and I appreciate your patience while we solve this issue.","给你带来不便我很抱歉，也感谢你在我们解决这个问题时的耐心。"],
+["Common Dialogue","Let us focus on the most urgent issue first and deal with the smaller details later.","我们先关注最紧急的问题，然后再处理较小的细节。"],
+["Common Dialogue","I think this solution is practical because it saves time without reducing quality.","我认为这个解决方案很实用，因为它节省时间，同时不会降低质量。"],
+["Common Dialogue","Could you confirm whether everything is ready before we move on to the next step?","在我们进入下一步之前，你能确认一下所有事情是否已经准备好吗？"],
+["Workplace","From my perspective, the proposal is promising, but it still needs a clearer timeline and measurable goals.","从我的角度看，这个提案很有前景，但仍然需要更清晰的时间表和可衡量的目标。"],
+["Workplace","The main advantage of this approach is that it reduces unnecessary complexity while improving overall efficiency.","这种方法的主要优点是减少不必要的复杂性，同时提高整体效率。"],
+["Workplace","We should prioritize the tasks that have the greatest impact instead of trying to handle everything at once.","我们应该优先处理影响最大的任务，而不是试图一次性处理所有事情。"],
+["Workplace","A productive meeting should lead to clear responsibilities, realistic deadlines, and specific next steps.","高效的会议应该产生明确的责任分工、现实的截止日期以及具体的下一步行动。"],
+["Workplace","I would like to review the data before drawing any conclusion, because the current evidence is still limited.","我想在得出任何结论之前先查看数据，因为目前的证据仍然有限。"],
+["Workplace","The project is moving in the right direction, but we need to improve communication between different teams.","这个项目正在朝正确方向推进，但我们需要改善不同团队之间的沟通。"],
+["Workplace","Instead of making the interface more complicated, we should make the core functions easier to access.","我们不应该让界面变得更复杂，而应该让核心功能更容易访问。"],
+["Workplace","This problem does not require a completely new system; it requires a careful improvement of the existing one.","这个问题不需要一个全新的系统，而是需要对现有系统进行细致改进。"],
+["Workplace","If we want to avoid confusion, we need to define the requirements more precisely at the beginning.","如果我们想避免混乱，就需要在一开始更精确地定义需求。"],
+["Workplace","The final version should be simple enough for users but structured enough for future maintenance.","最终版本应该对用户足够简单，同时在结构上足够适合未来维护。"],
+["Travel","I would like to book a room that is quiet, clean, and close to public transportation.","我想预订一个安静、干净并且靠近公共交通的房间。"],
+["Travel","Could you tell me whether breakfast is included in the price or charged separately?","你能告诉我早餐是否包含在价格里，还是需要单独收费吗？"],
+["Travel","I have a reservation under this name, and I would like to check in if the room is ready.","我用这个名字预订了房间，如果房间准备好了，我想办理入住。"],
+["Travel","Could you recommend a nearby restaurant that is not too expensive but still has good food?","你能推荐一家附近不太贵但食物不错的餐厅吗？"],
+["Travel","I would prefer a direct route if possible, even if it takes a little longer.","如果可以的话，我更想选择直达路线，即使时间稍微长一点。"],
+["Travel","Excuse me, could you tell me which platform I should go to for this train?","打扰一下，你能告诉我这趟火车应该去哪个站台吗？"],
+["Travel","I am trying to find the most convenient way to get to the city center from here.","我正在找从这里到市中心最方便的方式。"],
+["Travel","Could you help me check whether this ticket can be changed or refunded?","你能帮我查一下这张票是否可以改签或退款吗？"],
+["Service","I understand that mistakes can happen, but I hope this issue can be resolved as soon as possible.","我理解错误可能会发生，但我希望这个问题能尽快解决。"],
+["Service","The product arrived later than expected, and I would like to know the reason for the delay.","产品比预期到得晚，我想知道延误的原因。"],
+["Service","Could you please check my order status and confirm whether it has already been shipped?","你能帮我查看订单状态，并确认它是否已经发货了吗？"],
+["Service","I would appreciate it if you could provide a replacement or a refund for this item.","如果你能为这个商品提供换货或退款，我会很感谢。"],
+["Service","The service was generally good, but I think the response time could be improved.","服务总体不错，但我认为响应速度可以改进。"],
+["Service","I am contacting you because I need assistance with a payment issue.","我联系你们是因为我需要处理一个付款问题。"],
+["Service","Could you explain the difference between these two plans in simple terms?","你能用简单的话解释一下这两个套餐之间的区别吗？"],
+["Service","I would like to upgrade my plan, but I want to understand the additional cost first.","我想升级我的套餐，但我想先了解额外费用。"],
+["Academic","A major benefit of digital learning is that students can access educational resources regardless of time and location.","数字化学习的一个主要好处是学生可以不受时间和地点限制地访问教育资源。"],
+["Academic","It is important to distinguish between information that is merely popular and information that is genuinely reliable.","区分仅仅流行的信息和真正可靠的信息非常重要。"],
+["Academic","One possible explanation is that people are more likely to accept ideas that match their previous experiences.","一种可能的解释是，人们更容易接受与自己过往经验相符的观点。"],
+["Academic","This example illustrates how a small design choice can have a significant effect on user behavior.","这个例子说明了一个小的设计选择如何对用户行为产生显著影响。"],
+["Academic","Although convenience is important, it should not be achieved at the expense of accuracy or long-term reliability.","尽管便利性很重要，但不应该以牺牲准确性或长期可靠性为代价。"],
+["Academic","The evidence suggests that consistent practice is more effective than short periods of intense preparation.","证据表明，持续练习比短时间的高强度准备更有效。"],
+["Academic","A balanced approach is necessary because every solution has both advantages and potential limitations.","一种平衡的方法是必要的，因为每种解决方案都有优点和潜在限制。"],
+["Academic","The central issue is not whether technology is useful, but how it can be used responsibly and effectively.","核心问题不是技术是否有用，而是如何负责任且有效地使用它。"],
+["Advanced Expression","This approach is practical in theory, but its effectiveness depends heavily on implementation details.","这种方法在理论上是实用的，但它的效果很大程度上取决于执行细节。"],
+["Advanced Expression","The problem is not caused by a single factor; rather, it is the result of several interacting conditions.","这个问题不是由单一因素造成的，而是几个相互作用的条件共同导致的。"],
+["Advanced Expression","A more realistic solution would be to improve the existing process rather than replace it entirely.","一个更现实的解决方案是改进现有流程，而不是完全替换它。"],
+["Advanced Expression","This comparison is useful because it highlights both the strengths and weaknesses of each option.","这种比较很有用，因为它突出了每个选择的优点和缺点。"],
+["Advanced Expression","In practical terms, the best choice is the one that is reliable, affordable, and easy to use.","从实际角度看，最佳选择是可靠、价格合理并且易于使用的那个。"],
+  ["Grassland","Grasslands are wide open areas where grasses dominate the landscape, while trees are usually scattered or absent because of limited rainfall.","草原是以草本植物为主的广阔开阔地区，由于降水有限，树木通常较少或几乎没有。"],
+["Grassland","Temperate grasslands often have fertile soil, making them suitable for agriculture, although they can be vulnerable to drought and overgrazing.","温带草原通常土壤肥沃，适合农业生产，但也容易受到干旱和过度放牧的影响。"],
+["Grassland","Tropical grasslands, also known as savannas, usually experience a distinct wet season and dry season.","热带草原也被称为稀树草原，通常有明显的雨季和旱季。"],
+["Grassland","The savanna is characterized by tall grasses, scattered trees, and wildlife that has adapted to seasonal changes in water availability.","稀树草原的特点是高草、稀疏树木，以及适应季节性水源变化的野生动物。"],
+["Grassland","Grassland ecosystems play an important role in storing carbon, supporting biodiversity, and providing grazing land for animals.","草原生态系统在储存碳、支持生物多样性以及为动物提供放牧土地方面发挥重要作用。"],
+["Grassland","A prairie is a type of grassland commonly associated with broad plains, rich soil, and strong seasonal temperature changes.","北美草原是一种常见于广阔平原的草原类型，通常具有肥沃土壤和明显的季节性温度变化。"],
+["Grassland","A steppe is generally drier than many other grasslands, so vegetation is shorter and more resistant to drought.","干草原通常比许多其他草原更加干燥，因此植被更矮，也更耐旱。"],
+["Grassland","When grasslands are poorly managed, soil erosion can become a serious problem, especially in dry and windy regions.","如果草原管理不当，土壤侵蚀可能成为严重问题，尤其是在干燥多风的地区。"],
+["Desert","A desert is not defined only by heat; it is mainly defined by extremely low rainfall and limited vegetation.","沙漠并不只是由高温定义的，它主要由极低降水量和有限植被来定义。"],
+["Desert","Hot deserts often experience intense daytime heat and sharp temperature drops at night because dry air retains little heat.","热沙漠白天常常非常炎热，夜间温度急剧下降，因为干燥空气保温能力较弱。"],
+["Desert","Cold deserts can be extremely dry as well, even though their temperatures are much lower than those of tropical deserts.","寒冷沙漠同样可能非常干燥，尽管它们的温度远低于热带沙漠。"],
+["Desert","Desert plants usually have special adaptations, such as deep roots, thick stems, or small leaves that reduce water loss.","沙漠植物通常具有特殊适应能力，例如深根、厚茎或减少水分流失的小叶片。"],
+["Desert","Desertification occurs when fertile land gradually becomes degraded and less productive, often because of drought, overuse, or poor land management.","荒漠化是指肥沃土地逐渐退化并降低生产力，通常与干旱、过度使用或不良土地管理有关。"],
+["Desert","Although deserts may appear empty, many of them contain complex ecosystems that are highly adapted to scarce water resources.","尽管沙漠看起来空旷，许多沙漠其实拥有复杂生态系统，并高度适应稀缺水资源。"],
+["Desert","An oasis is an area in a desert where water is available, allowing plants, animals, and people to survive.","绿洲是沙漠中有水源的地区，使植物、动物和人类能够生存。"],
+["Desert","Sand dunes are shaped by wind, and their movement can gradually change the appearance of a desert landscape.","沙丘由风塑造，它们的移动会逐渐改变沙漠景观的外观。"],
+["Climate","Climate refers to the long-term pattern of weather in a region, including temperature, rainfall, humidity, and seasonal variation.","气候指一个地区长期的天气模式，包括温度、降水、湿度和季节变化。"],
+["Climate","Weather describes short-term atmospheric conditions, while climate describes the average conditions over a much longer period.","天气描述短期大气状况，而气候描述更长时间内的平均状况。"],
+["Climate","A tropical climate is generally warm throughout the year and often receives abundant rainfall, especially near the equator.","热带气候通常全年温暖，并且经常有充沛降水，尤其是在赤道附近。"],
+["Climate","Regions with a tropical rainforest climate usually have high temperatures, heavy rainfall, and dense vegetation throughout the year.","具有热带雨林气候的地区通常全年高温、多雨，并拥有茂密植被。"],
+["Climate","A tropical monsoon climate is strongly influenced by seasonal winds that bring periods of heavy rain and relative dryness.","热带季风气候强烈受季节性风影响，会带来强降雨时期和相对干燥时期。"],
+["Climate","A Mediterranean climate usually has hot dry summers and mild wet winters, which makes it suitable for certain crops such as olives and grapes.","地中海气候通常夏季炎热干燥，冬季温和多雨，因此适合橄榄和葡萄等作物生长。"],
+["Climate","A continental climate often has large temperature differences between summer and winter because it is far from the moderating influence of oceans.","大陆性气候通常夏冬温差大，因为它远离海洋调节作用。"],
+["Climate","An arid climate receives very little rainfall, so water management is especially important for human settlement and agriculture.","干旱气候降水很少，因此水资源管理对人类定居和农业尤其重要。"],
+["Climate","A humid climate can make vegetation grow rapidly, but it may also increase the risk of mold, pests, and heat discomfort.","湿润气候可以使植被快速生长，但也可能增加霉菌、害虫和闷热不适的风险。"],
+["Climate","Mountain climates can change dramatically over short distances because temperature usually decreases with altitude.","山地气候可能在短距离内发生明显变化，因为温度通常会随海拔升高而下降。"],
+["Tropical Places","Tropical regions are often rich in biodiversity because warm temperatures and high rainfall create favorable conditions for life.","热带地区通常生物多样性丰富，因为温暖温度和高降水为生命创造了有利条件。"],
+["Tropical Places","Tropical rainforests are among the most biologically diverse environments on Earth, but they are also sensitive to disturbance.","热带雨林是地球上生物多样性最高的环境之一，但它们也容易受到干扰。"],
+["Tropical Places","In tropical areas, daily temperature changes may be smaller than seasonal rainfall changes.","在热带地区，每日温度变化可能小于季节性降水变化。"],
+["Tropical Places","Many tropical coastal areas depend on tourism, fishing, and agriculture, but they can be vulnerable to storms and rising sea levels.","许多热带沿海地区依赖旅游、渔业和农业，但它们容易受到风暴和海平面上升的影响。"],
+["Tropical Places","A tropical island often attracts visitors because of its warm climate, clear water, and distinctive coastal scenery.","热带岛屿通常因温暖气候、清澈海水和独特海岸风景而吸引游客。"],
+["Tropical Places","The richness of tropical ecosystems makes conservation especially important, since damage can affect many species at once.","热带生态系统的丰富性使保护工作尤其重要，因为破坏可能同时影响许多物种。"],
+["Mountains","Mountain regions often have steep slopes, thin air, and diverse climates that change with altitude.","山区通常有陡峭坡地、稀薄空气以及随海拔变化的多样气候。"],
+["Mountains","Mountains can influence rainfall patterns because they force moist air to rise, cool, and release precipitation.","山脉可以影响降雨模式，因为它们迫使湿润空气上升、冷却并形成降水。"],
+["Mountains","The windward side of a mountain usually receives more rainfall, while the leeward side may become much drier.","山的迎风坡通常降水更多，而背风坡可能变得更加干燥。"],
+["Mountains","Mountain landscapes are attractive to tourists, but they can also be difficult places for transportation and construction.","山地景观对游客很有吸引力，但也可能给交通和建设带来困难。"],
+["Mountains","High-altitude environments require special adaptation because oxygen levels are lower and weather conditions can change quickly.","高海拔环境需要特殊适应，因为氧气含量较低，天气状况也可能快速变化。"],
+["Coastal Areas","Coastal areas are places where land meets the sea, often supporting fishing, trade, tourism, and dense human settlement.","沿海地区是陆地与海洋相接的地方，通常支持渔业、贸易、旅游和密集人类定居。"],
+["Coastal Areas","A coastline can be shaped by waves, tides, storms, and the gradual movement of sediment.","海岸线可以被海浪、潮汐、风暴以及沉积物的逐渐移动所塑造。"],
+["Coastal Areas","Mangrove forests protect coastlines by reducing wave energy and providing habitats for many marine species.","红树林通过减弱海浪能量并为许多海洋物种提供栖息地来保护海岸线。"],
+["Coastal Areas","Coastal cities often benefit from trade and tourism, but they may face risks from flooding and extreme weather.","沿海城市常常受益于贸易和旅游，但也可能面临洪水和极端天气风险。"],
+["Coastal Areas","Beaches are dynamic environments, meaning their shape can change naturally over time because of waves and currents.","海滩是动态环境，这意味着它们的形状会因海浪和洋流而随时间自然变化。"],
+["Rivers","Rivers transport water, sediment, and nutrients across landscapes, connecting mountains, plains, and oceans.","河流在地貌中运输水、沉积物和养分，连接山地、平原和海洋。"],
+["Rivers","A river valley often becomes a center of settlement because it provides water, fertile land, and transportation routes.","河谷常常成为定居中心，因为它提供水源、肥沃土地和交通路线。"],
+["Rivers","Floodplains can be highly fertile, but living there also involves the risk of seasonal flooding.","洪泛平原可能非常肥沃，但居住在那里也面临季节性洪水风险。"],
+["Rivers","The health of a river depends on both natural conditions and human activities along its banks.","河流健康取决于自然条件以及河岸附近的人类活动。"],
+["Rivers","Deltas form where rivers deposit sediment as they enter slower-moving water, such as a sea or lake.","三角洲形成于河流进入流速较慢的水体时沉积泥沙的地方，例如海洋或湖泊。"],
+["Forests","Forests help regulate climate by storing carbon, protecting soil, and influencing the water cycle.","森林通过储存碳、保护土壤以及影响水循环来帮助调节气候。"],
+["Forests","Temperate forests usually experience clear seasonal changes, including warm summers and cold winters.","温带森林通常经历明显季节变化，包括温暖夏季和寒冷冬季。"],
+["Forests","Boreal forests are found in cold northern regions and are mainly composed of coniferous trees.","针叶林分布在寒冷的北方地区，主要由针叶树构成。"],
+["Forests","Deforestation can reduce biodiversity, damage soil quality, and disturb local rainfall patterns.","森林砍伐可能减少生物多样性、损害土壤质量，并扰乱当地降雨模式。"],
+["Forests","A healthy forest is not just a collection of trees; it is a complex system of plants, animals, soil, and water.","健康森林不只是树木的集合，而是植物、动物、土壤和水组成的复杂系统。"],
+["Cities","Urban areas are shaped by population density, transportation systems, economic activity, and access to public services.","城市地区由人口密度、交通系统、经济活动以及公共服务可及性共同塑造。"],
+["Cities","A well-planned city should provide convenient transportation, public green space, and reliable basic services.","规划良好的城市应该提供便利交通、公共绿地和可靠的基础服务。"],
+["Cities","Urban heat islands occur when buildings, roads, and human activities make cities warmer than surrounding rural areas.","城市热岛现象是指建筑、道路和人类活动使城市比周边乡村地区更热。"],
+["Cities","Public parks improve urban life by offering space for exercise, relaxation, and social interaction.","公共公园通过提供运动、放松和社交空间来改善城市生活。"],
+["Cities","The quality of a neighborhood is often influenced by safety, noise levels, transport access, and nearby facilities.","一个社区的质量通常受安全性、噪音水平、交通便利性和周边设施影响。"],
+["Natural Hazards","A natural hazard becomes more dangerous when people are poorly prepared or when infrastructure is weak.","当人们准备不足或基础设施薄弱时，自然灾害会变得更加危险。"],
+["Natural Hazards","Drought can affect agriculture, water supply, and local ecosystems, especially in regions that already receive limited rainfall.","干旱会影响农业、水供应和当地生态系统，尤其是在本来降水就有限的地区。"],
+["Natural Hazards","Flooding can damage homes and roads, but careful planning can reduce its long-term impact.","洪水会损坏房屋和道路，但谨慎规划可以降低其长期影响。"],
+["Natural Hazards","Wildfires can spread quickly in dry and windy conditions, particularly where vegetation is dense.","在干燥多风的条件下，野火可能迅速蔓延，尤其是在植被密集的地区。"],
+["Natural Hazards","Earthquakes cannot be prevented, but their damage can be reduced through stronger buildings and better emergency planning.","地震无法被阻止，但可以通过更坚固的建筑和更好的应急规划来减少破坏。"]
 ];
-function load(){let d=localStorage.getItem("sentences");if(!d){localStorage.setItem("sentences",JSON.stringify(defaultData));d=JSON.stringify(defaultData)}return JSON.parse(d)}
-function save(d){localStorage.setItem("sentences",JSON.stringify(d))}
-function render(){let box=document.getElementById("list");box.innerHTML="";load().forEach((x,i)=>{box.innerHTML+=`<div class="card sentence-card shadow-sm mb-4"><div class="card-body p-4"><span class="tag">${x[0]}</span><h3 class="english mt-3">${x[1]}</h3><hr><p class="chinese">${x[2]}</p><button class="btn btn-outline-danger" onclick="removeItem(${i})">Delete</button></div></div>`})}
-function addSentence(){let e=document.getElementById("englishInput").value,c=document.getElementById("chineseInput").value;if(!e||!c)return alert("Please complete both fields.");let d=load();d.unshift(["Personal",e,c]);save(d);document.getElementById("englishInput").value="";document.getElementById("chineseInput").value="";render()}
-function removeItem(i){let d=load();d.splice(i,1);save(d);render()}
-render();
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function load(){let d=localStorage.getItem(storageKey);if(!d){localStorage.setItem(storageKey,JSON.stringify(defaultData));d=JSON.stringify(defaultData)}return JSON.parse(d)}
+function save(d){localStorage.setItem(storageKey,JSON.stringify(d))}
+function fillCategories(){let select=document.getElementById("categoryFilter"),cats=["All",...new Set(load().map(x=>x[0]))];select.innerHTML=cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("")}
+function render(){let data=load(),q=document.getElementById("searchInput").value.toLowerCase().trim(),cat=document.getElementById("categoryFilter").value,box=document.getElementById("list");let shown=data.filter(x=>(cat==="All"||x[0]===cat)&&(!q||x.join(" ").toLowerCase().includes(q)));document.getElementById("counter").textContent=`Showing ${shown.length} / ${data.length} sentences`;box.innerHTML=shown.map((x)=>{let i=data.indexOf(x);return `<div class="card sentence-card shadow-sm mb-4"><div class="card-body p-4"><span class="tag">${esc(x[0])}</span><h3 class="english mt-3">${esc(x[1])}</h3><hr><p class="chinese">${esc(x[2])}</p><button class="btn btn-ghost me-2" onclick="speak(${i})">Speak</button><button class="btn btn-outline-danger" onclick="removeItem(${i})">Delete</button></div></div>`}).join("")}
+function addSentence(){let e=document.getElementById("englishInput").value.trim(),c=document.getElementById("chineseInput").value.trim();if(!e||!c)return alert("Please complete both fields.");let d=load();d.unshift(["Personal",e,c]);save(d);document.getElementById("englishInput").value="";document.getElementById("chineseInput").value="";fillCategories();render()}
+function removeItem(i){let d=load();if(!confirm("Delete this sentence?"))return;d.splice(i,1);save(d);fillCategories();render()}
+function speak(i){let text=load()[i][1];speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(text))}
+fillCategories();render();
 </script>
 </body>
 </html>
