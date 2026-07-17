@@ -442,11 +442,6 @@
       text-decoration: none;
     }
 
-    .privacy-note {
-      color: var(--app-muted);
-      font-size: .9rem;
-    }
-
     .notification-fallback {
       position: fixed;
       right: 1rem;
@@ -497,6 +492,25 @@
         margin-top: 1.5rem;
       }
     }
+    .next-study-button-red,
+    .next-study-button-red:disabled {
+      color: #fff;
+      background-color: rgb(255, 0, 0);
+      border-color: rgb(255, 0, 0);
+    }
+
+    .next-study-button-red:hover,
+    .next-study-button-red:focus,
+    .next-study-button-red:active {
+      color: #fff;
+      background-color: rgb(220, 0, 0);
+      border-color: rgb(220, 0, 0);
+    }
+
+    .next-study-button-red:disabled {
+      opacity: .55;
+    }
+
   </style>
 </head>
 
@@ -723,7 +737,7 @@
             <button type="button" id="previousStudyButton" class="btn btn-outline-secondary px-4" data-action="previous-study-word">
               <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>上一个
             </button>
-            <button type="button" id="nextStudyButton" class="btn btn-primary px-4" data-action="next-study-word" disabled>
+            <button type="button" id="nextStudyButton" class="btn next-study-button-red px-4" data-action="next-study-word" disabled>
               已记住，下一个 <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
             </button>
           </div>
@@ -1040,10 +1054,6 @@
         </div>
       </div>
     </section>
-
-    <p class="privacy-note text-center mt-4 mb-0">
-      本应用不使用 Cookie、广告或分析脚本；学习数据仅存储在当前浏览器的 localStorage 中。
-    </p>
   </main>
 
   <div id="notificationFallback" class="alert alert-dark notification-fallback d-none" role="status" aria-live="polite"></div>
@@ -1420,6 +1430,216 @@
             "meaning": "广泛的；普遍的",
             "example": "There is widespread agreement that children need stronger protection online.",
             "exampleCn": "人们普遍认同儿童在网络环境中需要更有力的保护。"
+      },
+      {
+            "word": "adapt",
+            "phonetic": "/əˈdæpt/",
+            "meaning": "适应；调整",
+            "example": "Cities must adapt their infrastructure to cope with more frequent extreme weather.",
+            "exampleCn": "城市必须调整基础设施，以应对更加频繁的极端天气。"
+      },
+      {
+            "word": "advocate",
+            "phonetic": "/ˈæd.və.keɪt/",
+            "meaning": "提倡；主张",
+            "example": "Many health experts advocate stricter limits on the advertising of sugary products to children.",
+            "exampleCn": "许多健康专家主张对面向儿童的含糖产品广告实施更严格的限制。"
+      },
+      {
+            "word": "adverse",
+            "phonetic": "/ˈæd.vɜːs/",
+            "meaning": "不利的；有害的",
+            "example": "Long working hours can have adverse effects on both productivity and mental health.",
+            "exampleCn": "长时间工作可能对生产效率和心理健康产生不利影响。"
+      },
+      {
+            "word": "alternative",
+            "phonetic": "/ɒlˈtɜː.nə.tɪv/",
+            "meaning": "替代方案；可供选择的",
+            "example": "Improved rail services could provide a practical alternative to travelling by car.",
+            "exampleCn": "改善铁路服务可以为驾车出行提供一种切实可行的替代方案。"
+      },
+      {
+            "word": "apparent",
+            "phonetic": "/əˈpær.ənt/",
+            "meaning": "明显的；表面上的",
+            "example": "The apparent rise in crime may partly reflect changes in the way incidents are reported.",
+            "exampleCn": "犯罪率看似上升，部分原因可能是事件报告方式发生了变化。"
+      },
+      {
+            "word": "capacity",
+            "phonetic": "/kəˈpæs.ə.ti/",
+            "meaning": "能力；容量",
+            "example": "Public hospitals need greater capacity to meet the demands of an ageing population.",
+            "exampleCn": "公立医院需要扩大接诊能力，以满足人口老龄化带来的需求。"
+      },
+      {
+            "word": "consequence",
+            "phonetic": "/ˈkɒn.sɪ.kwəns/",
+            "meaning": "结果；后果",
+            "example": "One unintended consequence of rapid development is the loss of affordable housing.",
+            "exampleCn": "快速发展带来的一个意外后果是可负担住房的减少。"
+      },
+      {
+            "word": "crucial",
+            "phonetic": "/ˈkruː.ʃəl/",
+            "meaning": "至关重要的",
+            "example": "Early access to education is crucial for reducing long-term social inequality.",
+            "exampleCn": "尽早获得教育机会对于减少长期社会不平等至关重要。"
+      },
+      {
+            "word": "diminish",
+            "phonetic": "/dɪˈmɪn.ɪʃ/",
+            "meaning": "减少；削弱",
+            "example": "Public trust may diminish when institutions fail to explain how decisions are made.",
+            "exampleCn": "当机构未能解释决策过程时，公众信任可能会下降。"
+      },
+      {
+            "word": "diversity",
+            "phonetic": "/daɪˈvɜː.sə.ti/",
+            "meaning": "多样性；差异性",
+            "example": "Cultural diversity can enrich urban life by introducing new ideas, skills, and traditions.",
+            "exampleCn": "文化多样性能够通过引入新的思想、技能和传统来丰富城市生活。"
+      },
+      {
+            "word": "economy",
+            "phonetic": "/ɪˈkɒn.ə.mi/",
+            "meaning": "经济；节约",
+            "example": "A resilient economy is better able to recover from global financial shocks.",
+            "exampleCn": "具有韧性的经济体能够更好地从全球金融冲击中恢复。"
+      },
+      {
+            "word": "efficient",
+            "phonetic": "/ɪˈfɪʃ.ənt/",
+            "meaning": "高效的；有效率的",
+            "example": "Energy-efficient buildings can lower household costs while reducing carbon emissions.",
+            "exampleCn": "节能建筑既能降低家庭开支，也能减少碳排放。"
+      },
+      {
+            "word": "emerge",
+            "phonetic": "/ɪˈmɜːdʒ/",
+            "meaning": "出现；显现",
+            "example": "New employment opportunities may emerge as the renewable energy sector expands.",
+            "exampleCn": "随着可再生能源行业的发展，新的就业机会可能会出现。"
+      },
+      {
+            "word": "enhance",
+            "phonetic": "/ɪnˈhɑːns/",
+            "meaning": "提高；增强",
+            "example": "Well-designed public spaces can enhance residents' quality of life and sense of community.",
+            "exampleCn": "设计合理的公共空间能够提升居民的生活质量和社区归属感。"
+      },
+      {
+            "word": "exclude",
+            "phonetic": "/ɪkˈskluːd/",
+            "meaning": "排除；不包括",
+            "example": "Digital services should not exclude people who lack reliable internet access.",
+            "exampleCn": "数字服务不应将无法稳定上网的人群排除在外。"
+      },
+      {
+            "word": "expand",
+            "phonetic": "/ɪkˈspænd/",
+            "meaning": "扩大；扩展",
+            "example": "The university plans to expand its scholarship programme for students from disadvantaged backgrounds.",
+            "exampleCn": "该大学计划扩大面向弱势背景学生的奖学金项目。"
+      },
+      {
+            "word": "feasible",
+            "phonetic": "/ˈfiː.zə.bəl/",
+            "meaning": "可行的；办得到的",
+            "example": "A complete ban may not be feasible, but tighter regulation could still reduce the harm.",
+            "exampleCn": "全面禁止可能并不可行，但更严格的监管仍能减少危害。"
+      },
+      {
+            "word": "framework",
+            "phonetic": "/ˈfreɪm.wɜːk/",
+            "meaning": "框架；体系",
+            "example": "A clear legal framework is needed to govern the responsible use of personal data.",
+            "exampleCn": "需要建立明确的法律框架，以规范个人数据的负责任使用。"
+      },
+      {
+            "word": "implement",
+            "phonetic": "/ˈɪm.plɪ.ment/",
+            "meaning": "实施；执行",
+            "example": "Schools should implement evidence-based measures rather than rely on short-term trends.",
+            "exampleCn": "学校应实施有证据支持的措施，而不是依赖短期潮流。"
+      },
+      {
+            "word": "imply",
+            "phonetic": "/ɪmˈplaɪ/",
+            "meaning": "暗示；意味着",
+            "example": "Higher spending does not necessarily imply that a public service is more effective.",
+            "exampleCn": "更高的支出并不一定意味着公共服务更加有效。"
+      },
+      {
+            "word": "incentive",
+            "phonetic": "/ɪnˈsen.tɪv/",
+            "meaning": "激励；奖励措施",
+            "example": "Tax incentives can encourage companies to invest in cleaner production methods.",
+            "exampleCn": "税收激励可以鼓励企业投资更清洁的生产方式。"
+      },
+      {
+            "word": "justify",
+            "phonetic": "/ˈdʒʌs.tɪ.faɪ/",
+            "meaning": "证明……合理；为……辩护",
+            "example": "The expected environmental benefits may justify the initial cost of the project.",
+            "exampleCn": "预期的环境效益可能足以证明该项目初期成本的合理性。"
+      },
+      {
+            "word": "legislation",
+            "phonetic": "/ˌledʒ.ɪˈsleɪ.ʃən/",
+            "meaning": "法律；立法",
+            "example": "Stronger legislation is required to prevent employers from misusing personal information.",
+            "exampleCn": "需要更有力的立法来防止雇主滥用个人信息。"
+      },
+      {
+            "word": "obtain",
+            "phonetic": "/əbˈteɪn/",
+            "meaning": "获得；取得",
+            "example": "Students in remote areas may struggle to obtain the same educational opportunities as their urban peers.",
+            "exampleCn": "偏远地区的学生可能难以获得与城市同龄人相同的教育机会。"
+      },
+      {
+            "word": "outcome",
+            "phonetic": "/ˈaʊt.kʌm/",
+            "meaning": "结果；成效",
+            "example": "The success of the programme should be judged by long-term outcomes rather than short-term participation.",
+            "exampleCn": "该项目是否成功，应根据长期成效而不是短期参与人数来判断。"
+      },
+      {
+            "word": "priority",
+            "phonetic": "/praɪˈɒr.ə.ti/",
+            "meaning": "优先事项；优先权",
+            "example": "Improving basic literacy should remain a national priority in areas with limited educational resources.",
+            "exampleCn": "在教育资源有限的地区，提高基础读写能力应继续作为国家优先事项。"
+      },
+      {
+            "word": "restrict",
+            "phonetic": "/rɪˈstrɪkt/",
+            "meaning": "限制；约束",
+            "example": "Excessive regulation may restrict innovation without providing meaningful public protection.",
+            "exampleCn": "过度监管可能限制创新，却无法为公众提供实质性的保护。"
+      },
+      {
+            "word": "retain",
+            "phonetic": "/rɪˈteɪn/",
+            "meaning": "保留；留住",
+            "example": "Rural communities need better services if they are to retain young and skilled workers.",
+            "exampleCn": "农村社区若想留住年轻且有技能的劳动者，就需要提供更完善的服务。"
+      },
+      {
+            "word": "shift",
+            "phonetic": "/ʃɪft/",
+            "meaning": "转变；变化",
+            "example": "There has been a noticeable shift from private car use towards shared transport.",
+            "exampleCn": "人们的出行方式已明显从使用私家车转向共享交通。"
+      },
+      {
+            "word": "valid",
+            "phonetic": "/ˈvæl.ɪd/",
+            "meaning": "有效的；合理的",
+            "example": "The conclusion is valid only if the survey sample accurately represents the wider population.",
+            "exampleCn": "只有当调查样本能够准确代表更广泛的人群时，这一结论才成立。"
       }
 ];
 
