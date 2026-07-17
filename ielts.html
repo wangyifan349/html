@@ -1,0 +1,2508 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="雅思常用词汇学习、测试、错词复习与每日打卡网站">
+  <meta name="referrer" content="no-referrer">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'none'; script-src https://cdn.jsdelivr.net 'nonce-WordStepIelts2026Secure'; script-src-attr 'none'; style-src https://cdn.jsdelivr.net 'nonce-WordStepIelts2026Secure'; style-src-attr 'none'; font-src https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests"
+  >
+  <title>WordStep IELTS 雅思词汇打卡</title>
+
+  <!-- Bootstrap 5.3.8: fixed version, official CDN, SRI and anonymous CORS. -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  <style nonce="WordStepIelts2026Secure">
+    :root {
+      --app-background: #fff7f2;
+      --app-primary: #f05a28;
+      --app-primary-dark: #d94316;
+      --app-success: #2f9d70;
+      --app-danger: #d84a3f;
+      --app-warning: #f39a18;
+      --app-text: #3b2923;
+      --app-muted: #806f68;
+      --app-card-shadow: 0 12px 36px rgba(80, 47, 35, .08);
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--app-text);
+      background:
+        radial-gradient(circle at top left, rgba(240, 90, 40, .16), transparent 32rem),
+        var(--app-background);
+    }
+
+    .app-navbar {
+      background: rgba(255, 255, 255, .92);
+      border-bottom: 1px solid rgba(240, 90, 40, .12);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar-brand {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 1.25rem;
+    }
+
+    .brand-mark,
+    .stat-icon,
+    .resource-icon {
+      display: inline-grid;
+      place-items: center;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      color: #fff;
+      background: linear-gradient(135deg, #ff7a18, #e9422e);
+      box-shadow: 0 10px 24px rgba(240, 90, 40, .28);
+    }
+
+    .app-card {
+      border: 1px solid rgba(240, 90, 40, .07);
+      border-radius: 22px;
+      box-shadow: var(--app-card-shadow);
+    }
+
+    .stat-card {
+      height: 100%;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 38px rgba(80, 47, 35, .12);
+    }
+
+    .stat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      font-size: 1.25rem;
+    }
+
+    .text-bg-soft-primary {
+      color: var(--app-primary);
+      background: rgba(240, 90, 40, .12);
+    }
+
+    .text-bg-soft-success {
+      color: var(--app-success);
+      background: rgba(47, 157, 112, .12);
+    }
+
+    .text-bg-soft-danger {
+      color: var(--app-danger);
+      background: rgba(216, 74, 63, .12);
+    }
+
+    .text-bg-soft-warning {
+      color: var(--app-warning);
+      background: rgba(243, 154, 24, .14);
+    }
+
+    .section-panel {
+      display: none;
+    }
+
+    .section-panel.active {
+      display: block;
+      animation: fade-in .25s ease;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-pills .nav-item {
+      min-width: 130px;
+      flex: 1 1 0;
+    }
+
+    .nav-pills .nav-link {
+      padding-top: .8rem;
+      padding-bottom: .8rem;
+      border-radius: 12px;
+      color: #667085;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .nav-pills .nav-link.active {
+      color: #fff;
+      background: var(--app-primary);
+    }
+
+    .check-in-banner {
+      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(135deg, #ff7a18, #e9422e);
+    }
+
+    .check-in-decoration {
+      position: absolute;
+      right: -36px;
+      bottom: -56px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .btn,
+    .form-select {
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      --bs-btn-bg: var(--app-primary);
+      --bs-btn-border-color: var(--app-primary);
+      --bs-btn-hover-bg: var(--app-primary-dark);
+      --bs-btn-hover-border-color: var(--app-primary-dark);
+      --bs-btn-active-bg: var(--app-primary-dark);
+      --bs-btn-active-border-color: var(--app-primary-dark);
+    }
+
+    .btn-soft-primary {
+      color: var(--app-primary);
+      background: rgba(240, 90, 40, .11);
+      border: 1px solid rgba(240, 90, 40, .08);
+    }
+
+    .btn-soft-primary:hover {
+      color: #fff;
+      background: var(--app-primary);
+    }
+
+    .app-progress {
+      width: 100%;
+      height: 10px;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background: #e9edf5;
+    }
+
+    .app-progress::-webkit-progress-bar {
+      border-radius: 999px;
+      background: #e9edf5;
+    }
+
+    .app-progress::-webkit-progress-value {
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff7a18, #e9422e);
+    }
+
+    .app-progress::-moz-progress-bar {
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff7a18, #e9422e);
+    }
+
+    .word-card {
+      background:
+        linear-gradient(145deg, rgba(240, 90, 40, .08), rgba(233, 66, 46, .04)),
+        #fff;
+    }
+
+    .study-main {
+      width: min(100%, 920px);
+      margin: 0 auto;
+      padding: 1rem 0 .5rem;
+    }
+
+    .study-word-heading {
+      padding: 1rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .word-title {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .phonetic {
+      color: var(--app-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .study-reveal-surface {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .study-cover {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .25rem;
+      padding: 2rem;
+      border: 1px dashed rgba(240, 90, 40, .38);
+      border-radius: 20px;
+      color: var(--app-primary);
+      background:
+        linear-gradient(135deg, rgba(255, 122, 24, .10), rgba(233, 66, 46, .06)),
+        #fffaf7;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .study-cover:hover {
+      transform: translateY(-2px);
+      border-color: var(--app-primary);
+      box-shadow: 0 12px 30px rgba(145, 63, 34, .10);
+    }
+
+    .study-cover span {
+      color: var(--app-muted);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .study-answer {
+      padding-top: .5rem;
+      text-align: left;
+    }
+
+    .study-meaning-label,
+    .study-example-label {
+      color: var(--app-primary);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .study-meaning {
+      margin-top: .25rem;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .study-example-label {
+      margin-top: 2rem;
+    }
+
+    .study-example {
+      margin: .45rem 0 .4rem;
+      color: var(--app-text);
+      font-size: clamp(1.18rem, 2.3vw, 1.45rem);
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .study-example-translation {
+      margin: 0;
+      color: var(--app-muted);
+      font-size: 1.06rem;
+      line-height: 1.75;
+    }
+
+    .study-copy-button {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .test-option {
+      min-height: 58px;
+      text-align: left;
+      border: 1px solid rgba(59, 41, 35, .12);
+      border-radius: 15px;
+      background: #fff;
+      transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+    }
+
+    .test-option:hover:not(:disabled) {
+      transform: translateX(3px);
+      border-color: var(--app-primary);
+      background: rgba(240, 90, 40, .06);
+    }
+
+    .test-option.correct {
+      color: #0f6d4d;
+      border-color: rgba(47, 157, 112, .6);
+      background: rgba(47, 157, 112, .13);
+    }
+
+    .test-option.wrong {
+      color: #a52f3d;
+      border-color: rgba(216, 74, 63, .6);
+      background: rgba(216, 74, 63, .12);
+    }
+
+    .test-feedback-example {
+      margin-top: .75rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .test-feedback-translation {
+      margin-top: .2rem;
+      color: #75665f;
+      line-height: 1.65;
+    }
+
+    .badge-mastered {
+      color: #0f6d4d;
+      background: rgba(47, 157, 112, .13);
+    }
+
+    .badge-review {
+      color: #a52f3d;
+      background: rgba(216, 74, 63, .12);
+    }
+
+    .badge-new {
+      color: #596579;
+      background: #edf0f5;
+    }
+
+    .table > :not(caption) > * > * {
+      padding: .95rem .75rem;
+      vertical-align: middle;
+    }
+
+    .word-filter {
+      width: auto;
+    }
+
+    .empty-state {
+      padding: 3rem 1rem;
+      color: var(--app-muted);
+    }
+
+    .resource-intro,
+    .test-intro {
+      max-width: 680px;
+    }
+
+    .wrong-words-container {
+      max-width: 780px;
+    }
+
+    .resource-card {
+      height: 100%;
+      border: 1px solid rgba(240, 90, 40, .12);
+      border-radius: 18px;
+      background: #fff;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(240, 90, 40, .35);
+      box-shadow: 0 14px 32px rgba(130, 55, 30, .10);
+    }
+
+    .resource-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      color: var(--app-primary);
+      background: rgba(240, 90, 40, .11);
+      font-size: 1.35rem;
+    }
+
+    .resource-card a {
+      text-decoration: none;
+    }
+
+    .privacy-note {
+      color: var(--app-muted);
+      font-size: .9rem;
+    }
+
+    .notification-fallback {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1090;
+      max-width: 360px;
+    }
+
+    .small,
+    small {
+      font-size: .95rem !important;
+    }
+
+    @media (max-width: 767.98px) {
+      body {
+        font-size: 17px;
+      }
+
+      .nav-pills .nav-item {
+        min-width: calc(50% - .25rem);
+      }
+
+      .nav-pills .nav-link {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .container {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+
+      .app-card {
+        border-radius: 18px;
+      }
+
+      .study-cover {
+        min-height: 165px;
+        padding: 1.5rem 1rem;
+      }
+
+      .study-answer {
+        padding-top: .25rem;
+      }
+
+      .study-example-label {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar app-navbar sticky-top">
+    <div class="container py-2">
+      <button
+        type="button"
+        class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+        data-action="show-section"
+        data-section="dashboard"
+        aria-label="返回首页"
+      >
+        <span class="brand-mark" aria-hidden="true"><i class="bi bi-journal-check"></i></span>
+        <span>WordStep IELTS</span>
+      </button>
+      <span class="small text-secondary d-none d-sm-inline">雅思词汇 · 每日打卡</span>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-lg-5">
+    <div id="bootstrapStatusAlert" class="alert alert-warning d-none" role="alert"></div>
+
+    <div class="card app-card mb-4">
+      <div class="card-body p-2">
+        <ul class="nav nav-pills nav-fill gap-1 flex-wrap" id="mainNavigation">
+          <li class="nav-item">
+            <button type="button" class="nav-link active w-100" data-action="show-section" data-section="dashboard">
+              <i class="bi bi-grid me-1" aria-hidden="true"></i>首页
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link w-100" data-action="show-section" data-section="study">
+              <i class="bi bi-book me-1" aria-hidden="true"></i>学习
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link w-100" data-action="show-section" data-section="test">
+              <i class="bi bi-patch-question me-1" aria-hidden="true"></i>测试
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link w-100" data-action="show-section" data-section="word-list">
+              <i class="bi bi-list-check me-1" aria-hidden="true"></i>单词本
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link w-100" data-action="show-section" data-section="resources">
+              <i class="bi bi-link-45deg me-1" aria-hidden="true"></i>资源
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="dashboardSection" class="section-panel active" data-section-panel="dashboard">
+      <div class="card app-card check-in-banner position-relative mb-4">
+        <div class="card-body p-4 p-lg-5 position-relative">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <span class="badge rounded-pill bg-white text-primary mb-3">今日学习任务</span>
+              <h1 class="h2 fw-bold mb-2">坚持打卡，积累雅思核心词汇</h1>
+              <p class="mb-4 opacity-75">先背诵一组词，再测试同一组。学习记录仅保存在当前浏览器中。</p>
+              <button type="button" id="checkInButton" class="btn btn-light text-primary fw-bold px-4" data-action="complete-check-in">
+                <i class="bi bi-calendar-check me-2" aria-hidden="true"></i>完成今日打卡
+              </button>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <div class="display-4 fw-bold"><span id="streakCount">0</span><small class="fs-5 ms-1">天</small></div>
+              <div class="opacity-75">连续打卡</div>
+            </div>
+          </div>
+          <div class="check-in-decoration" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-lg">
+          <div class="card app-card stat-card">
+            <div class="card-body">
+              <span class="stat-icon text-bg-soft-primary mb-3" aria-hidden="true"><i class="bi bi-lightning-charge"></i></span>
+              <div class="h3 fw-bold mb-0" id="todayLearnedCount">0</div>
+              <div class="small text-secondary">今日学习</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg">
+          <div class="card app-card stat-card">
+            <div class="card-body">
+              <span class="stat-icon text-bg-soft-success mb-3" aria-hidden="true"><i class="bi bi-check2-circle"></i></span>
+              <div class="h3 fw-bold mb-0" id="masteredWordCount">0</div>
+              <div class="small text-secondary">已掌握单词</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg">
+          <div class="card app-card stat-card">
+            <div class="card-body">
+              <span class="stat-icon text-bg-soft-danger mb-3" aria-hidden="true"><i class="bi bi-exclamation-circle"></i></span>
+              <div class="h3 fw-bold mb-0" id="reviewWordCount">0</div>
+              <div class="small text-secondary">需复习单词</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg">
+          <div class="card app-card stat-card">
+            <div class="card-body">
+              <span class="stat-icon text-bg-soft-warning mb-3" aria-hidden="true"><i class="bi bi-bullseye"></i></span>
+              <div class="h3 fw-bold mb-0"><span id="accuracyPercentage">0</span>%</div>
+              <div class="small text-secondary">测试正确率</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card app-card h-100">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <h2 class="h5 fw-bold mb-1">今日进度</h2>
+                  <p class="small text-secondary mb-0">目标：学习 10 个单词</p>
+                </div>
+                <strong id="dailyProgressText">0 / 10</strong>
+              </div>
+              <progress id="dailyProgress" class="app-progress mb-4" max="100" value="0">0%</progress>
+              <div class="d-grid d-sm-flex gap-2">
+                <button type="button" id="studyActionButton" class="btn btn-primary px-4" data-action="start-study">
+                  <i class="bi bi-book-half me-1" aria-hidden="true"></i>开始背诵
+                </button>
+                <button type="button" id="learningFlowButton" class="btn btn-outline-primary px-4" data-action="continue-learning-flow">
+                  <i class="bi bi-arrow-repeat me-1" aria-hidden="true"></i>先背诵，再测试
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card app-card h-100">
+            <div class="card-body p-4">
+              <h2 class="h5 fw-bold mb-3">学习概况</h2>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-secondary">单词总数</span>
+                <strong id="totalWordCount">0</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-secondary">累计测试</span>
+                <strong id="completedTestCount">0 次</strong>
+              </div>
+              <div class="d-flex justify-content-between py-2">
+                <span class="text-secondary">累计打卡</span>
+                <strong id="totalCheckInCount">0 天</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="studySection" class="section-panel" data-section-panel="study">
+      <div class="card app-card word-card">
+        <div class="card-body p-4 p-lg-5">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+            <div>
+              <span class="badge rounded-pill text-bg-soft-primary mb-2">第 1 步：背诵</span>
+              <h2 class="h4 fw-bold mb-1">先记住这一组，再测试</h2>
+              <p class="text-secondary mb-0">每轮学习 10 个词。点击遮挡区域查看释义和例句，翻开后才能进入下一个词。</p>
+            </div>
+            <div class="d-flex gap-2 align-self-start">
+              <button type="button" class="btn btn-soft-primary rounded-pill px-3" data-action="speak-study-word">
+                <i class="bi bi-volume-up me-1" aria-hidden="true"></i>朗读单词
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm rounded-circle study-copy-button"
+                data-action="copy-study-word"
+                aria-label="复制当前单词内容"
+                title="复制单词、音标、释义和例句"
+              >
+                <i class="bi bi-copy" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
+            <span class="fw-bold" id="studyPositionText">1 / 10</span>
+            <span class="small text-secondary" id="studyProgressText">已翻开 0 / 10</span>
+          </div>
+          <progress id="studyProgress" class="app-progress mb-4" max="100" value="0">0%</progress>
+
+          <div class="study-main">
+            <div class="study-word-heading">
+              <div class="word-title" id="studyWordText">allocate</div>
+              <div class="phonetic" id="studyPhoneticText">/ˈæl.ə.keɪt/</div>
+            </div>
+
+            <button
+              type="button"
+              id="studyRevealButton"
+              class="study-reveal-surface"
+              data-action="reveal-study-answer"
+              aria-expanded="false"
+            >
+              <span id="studyCover" class="study-cover">
+                <i class="bi bi-eye fs-2 mb-2" aria-hidden="true"></i>
+                <strong>点击这里查看中文释义和例句</strong>
+                <span>先尝试回忆，再点击翻开</span>
+              </span>
+
+              <span id="studyAnswer" class="study-answer d-none">
+                <span class="study-meaning-label d-block">中文释义</span>
+                <span class="study-meaning d-block" id="studyMeaningText">分配；拨出</span>
+
+                <span class="study-example-label d-block">IELTS 语境例句</span>
+                <span class="study-example d-block" id="studyExampleText"></span>
+                <span class="study-example-translation d-block" id="studyExampleTranslation"></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 mt-4">
+            <button type="button" id="previousStudyButton" class="btn btn-outline-secondary px-4" data-action="previous-study-word">
+              <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>上一个
+            </button>
+            <button type="button" id="nextStudyButton" class="btn btn-primary px-4" data-action="next-study-word" disabled>
+              已记住，下一个 <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testSection" class="section-panel" data-section-panel="test">
+      <div id="testStartPanel" class="card app-card">
+        <div class="card-body p-4 p-lg-5 text-center">
+          <span class="stat-icon text-bg-soft-primary mb-3" aria-hidden="true"><i class="bi bi-layers"></i></span>
+          <div><span class="badge rounded-pill text-bg-soft-primary mb-3">第 2 步：测试</span></div>
+          <h2 id="testStartTitle" class="fw-bold">请先背诵一组单词</h2>
+          <p id="testStartDescription" class="text-secondary mx-auto test-intro">
+            每轮先背诵 10 个词，完成翻卡后，再测试同一组单词。
+          </p>
+          <button type="button" id="testStartButton" class="btn btn-primary btn-lg px-5" data-action="handle-test-start">
+            开始背诵
+          </button>
+        </div>
+      </div>
+
+      <div id="testQuestionPanel" class="card app-card d-none">
+        <div class="card-body p-4 p-lg-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <span class="badge rounded-pill text-bg-soft-primary mb-2">测试刚背过的单词</span>
+              <div class="fw-bold" id="testPositionText">1 / 10</div>
+            </div>
+            <span class="text-secondary">得分：<strong id="liveTestScore">0</strong></span>
+          </div>
+
+          <progress id="testProgress" class="app-progress mb-4" max="100" value="10">10%</progress>
+
+          <div class="text-center mb-4">
+            <button type="button" class="btn btn-sm btn-soft-primary rounded-pill px-3 mb-3" data-action="speak-test-word">
+              <i class="bi bi-volume-up me-1" aria-hidden="true"></i>朗读
+            </button>
+            <div class="display-4 fw-bold" id="testWordText">allocate</div>
+            <div class="phonetic" id="testPhoneticText">/ˈæl.ə.keɪt/</div>
+            <p class="text-secondary mt-2 mb-0">请选择最准确的中文释义</p>
+          </div>
+
+          <div id="testOptionList" class="row g-3"></div>
+          <div id="testFeedback" class="alert mt-4 mb-0 d-none" role="status"></div>
+
+          <div class="text-end mt-3">
+            <button type="button" id="nextTestButton" class="btn btn-primary d-none" data-action="next-test-question">
+              下一题 <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="testResultPanel" class="card app-card d-none">
+        <div class="card-body p-4 p-lg-5 text-center">
+          <span class="stat-icon text-bg-soft-success mb-3" aria-hidden="true"><i class="bi bi-trophy"></i></span>
+          <h2 class="fw-bold">本轮学习完成</h2>
+          <p class="text-secondary">答对自动标记为“已掌握”，答错自动进入“需复习”。</p>
+
+          <div class="display-3 fw-bold text-primary my-3">
+            <span id="finalTestScore">0</span><small class="fs-4 text-secondary"> / 10</small>
+          </div>
+
+          <div class="row g-3 justify-content-center mb-4">
+            <div class="col-6 col-md-3">
+              <div class="p-3 rounded-4 bg-light">
+                <div class="h4 fw-bold text-success mb-0" id="roundMasteredCount">0</div>
+                <small class="text-secondary">本轮已掌握</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="p-3 rounded-4 bg-light">
+                <div class="h4 fw-bold text-danger mb-0" id="roundReviewCount">0</div>
+                <small class="text-secondary">本轮需复习</small>
+              </div>
+            </div>
+          </div>
+
+          <div id="wrongWordsContainer" class="text-start mx-auto mb-4 d-none wrong-words-container">
+            <h3 class="h6 fw-bold">本轮错词</h3>
+            <div id="wrongWordList" class="list-group list-group-flush rounded-4 overflow-hidden"></div>
+          </div>
+
+          <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+            <button type="button" id="reviewWrongWordsButton" class="btn btn-outline-danger px-4" data-action="review-wrong-words">
+              <i class="bi bi-arrow-repeat me-1" aria-hidden="true"></i>复习本轮错词
+            </button>
+            <button type="button" class="btn btn-primary px-4" data-action="start-new-batch">
+              <i class="bi bi-book-half me-1" aria-hidden="true"></i>背诵下一组
+            </button>
+            <button type="button" class="btn btn-outline-primary px-4" data-action="show-section" data-section="word-list">
+              查看单词本
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wordListSection" class="section-panel" data-section-panel="word-list">
+      <div class="card app-card">
+        <div class="card-body p-4">
+          <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+            <div>
+              <h2 class="h4 fw-bold mb-1">我的单词本</h2>
+              <p class="text-secondary mb-0">查看雅思词汇的掌握状态、释义和答题记录。</p>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <select id="wordStatusFilter" class="form-select word-filter" aria-label="筛选单词状态">
+                <option value="all">全部单词</option>
+                <option value="mastered">已掌握</option>
+                <option value="review">需复习</option>
+                <option value="new">未测试</option>
+              </select>
+              <button type="button" class="btn btn-outline-danger" data-action="reset-application-data">
+                <i class="bi bi-arrow-counterclockwise me-1" aria-hidden="true"></i>重置记录
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">单词</th>
+                  <th scope="col">音标</th>
+                  <th scope="col">中文</th>
+                  <th scope="col">状态</th>
+                  <th scope="col">答题记录</th>
+                  <th scope="col"><span class="visually-hidden">操作</span></th>
+                </tr>
+              </thead>
+              <tbody id="wordTableBody"></tbody>
+            </table>
+          </div>
+          <div id="wordTableEmptyState" class="empty-state text-center d-none">
+            当前筛选条件下没有单词。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resourcesSection" class="section-panel" data-section-panel="resources">
+      <div class="card app-card mb-4">
+        <div class="card-body p-4 p-lg-5">
+          <span class="badge rounded-pill text-bg-soft-primary mb-3">IELTS &amp; English Resources</span>
+          <h2 class="h3 fw-bold mb-2">雅思与英语学习资源</h2>
+          <p class="text-secondary mb-0 resource-intro">以下链接在新标签页打开。建议优先使用官方备考材料和学习者词典。</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-patch-check"></i></span>
+            <h3 class="h5 fw-bold">IELTS 官方网站</h3>
+            <p class="text-secondary">查看考试介绍、题型、成绩与官方信息。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://ielts.org/"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              打开官网
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-pencil-square"></i></span>
+            <h3 class="h5 fw-bold">British Council 免费练习</h3>
+            <p class="text-secondary">听力、阅读、写作和口语的官方免费练习题。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://takeielts.britishcouncil.org/take-ielts/prepare/free-ielts-english-practice-tests"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              进入练习
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-mortarboard"></i></span>
+            <h3 class="h5 fw-bold">IDP IELTS 备考中心</h3>
+            <p class="text-secondary">官方练习、视频、播客、课程与备考建议。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://ielts.idp.com/prepare"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              进入备考中心
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-translate"></i></span>
+            <h3 class="h5 fw-bold">Collins 英汉词典</h3>
+            <p class="text-secondary">查询英汉释义、搭配、用法与例句。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://www.collinsdictionary.com/dictionary/english-chinese"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              查询词典
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-book-half"></i></span>
+            <h3 class="h5 fw-bold">Cambridge Learner’s Dictionary</h3>
+            <p class="text-secondary">简明英文解释、音频发音和学习者例句。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://dictionary.cambridge.org/dictionary/learner-english/"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              查询词典
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-journals"></i></span>
+            <h3 class="h5 fw-bold">Oxford Learner’s Dictionaries</h3>
+            <p class="text-secondary">英英释义、真实发音、例句、搭配和学术词表。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://www.oxfordlearnersdictionaries.com/"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              查询词典
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-headphones"></i></span>
+            <h3 class="h5 fw-bold">BBC Learning English</h3>
+            <p class="text-secondary">通过短视频学习新闻英语、词汇、语法和发音。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://www.youtube.com/@bbclearningenglish"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              观看课程
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-chat-square-text"></i></span>
+            <h3 class="h5 fw-bold">British Council LearnEnglish</h3>
+            <p class="text-secondary">按等级练习听、说、读、写、语法和词汇。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://learnenglish.britishcouncil.org/"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              开始学习
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-4">
+          <article class="resource-card p-4">
+            <span class="resource-icon mb-3" aria-hidden="true"><i class="bi bi-lightbulb"></i></span>
+            <h3 class="h5 fw-bold">Cambridge English Activities</h3>
+            <p class="text-secondary">免费听力、语法、词汇、阅读和写作练习。</p>
+            <a
+              class="fw-bold text-primary"
+              href="https://www.cambridgeenglish.org/learning-english/"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+            >
+              浏览活动
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <p class="privacy-note text-center mt-4 mb-0">
+      本应用不使用 Cookie、广告或分析脚本；学习数据仅存储在当前浏览器的 localStorage 中。
+    </p>
+  </main>
+
+  <div id="notificationFallback" class="alert alert-dark notification-fallback d-none" role="status" aria-live="polite"></div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="notificationToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+        <strong class="me-auto">WordStep</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="关闭"></button>
+      </div>
+      <div class="toast-body" id="notificationMessage"></div>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <script nonce="WordStepIelts2026Secure">
+    (() => {
+      "use strict";
+
+      const WORDS = [
+      {
+            "word": "allocate",
+            "phonetic": "/ˈæl.ə.keɪt/",
+            "meaning": "分配；拨出",
+            "example": "Local authorities allocated additional funds to improve public transport in densely populated areas.",
+            "exampleCn": "地方政府拨出额外资金，用于改善人口密集地区的公共交通。"
+      },
+      {
+            "word": "analyze",
+            "phonetic": "/ˈæn.əl.aɪz/",
+            "meaning": "分析",
+            "example": "The report analyzes how income levels influence access to higher education.",
+            "exampleCn": "该报告分析了收入水平如何影响人们接受高等教育的机会。"
+      },
+      {
+            "word": "approach",
+            "phonetic": "/əˈprəʊtʃ/",
+            "meaning": "方法；途径；处理",
+            "example": "A long-term approach is more likely to produce sustainable environmental benefits.",
+            "exampleCn": "长期性的解决方法更有可能带来可持续的环境效益。"
+      },
+      {
+            "word": "assess",
+            "phonetic": "/əˈses/",
+            "meaning": "评估；评价",
+            "example": "Before introducing the policy, the government should assess its likely impact on low-income families.",
+            "exampleCn": "在推行这项政策之前，政府应评估它可能对低收入家庭造成的影响。"
+      },
+      {
+            "word": "assume",
+            "phonetic": "/əˈsjuːm/",
+            "meaning": "假设；认为",
+            "example": "It is misleading to assume that all young people are equally confident with technology.",
+            "exampleCn": "认为所有年轻人都同样擅长使用科技产品是一种误导。"
+      },
+      {
+            "word": "benefit",
+            "phonetic": "/ˈben.ɪ.fɪt/",
+            "meaning": "益处；使受益",
+            "example": "Both employers and employees may benefit from flexible working arrangements.",
+            "exampleCn": "雇主和雇员都可能从灵活的工作安排中受益。"
+      },
+      {
+            "word": "challenge",
+            "phonetic": "/ˈtʃæl.ɪndʒ/",
+            "meaning": "挑战；难题",
+            "example": "Providing affordable housing remains a serious challenge in many rapidly growing cities.",
+            "exampleCn": "在许多快速发展的城市中，提供可负担住房仍是一项严峻挑战。"
+      },
+      {
+            "word": "coherent",
+            "phonetic": "/kəʊˈhɪə.rənt/",
+            "meaning": "连贯的；有条理的",
+            "example": "The essay presents a coherent argument supported by relevant evidence.",
+            "exampleCn": "这篇文章提出了一个连贯的论点，并以相关证据加以支持。"
+      },
+      {
+            "word": "considerable",
+            "phonetic": "/kənˈsɪd.ər.ə.bəl/",
+            "meaning": "相当大的；可观的",
+            "example": "Building a nationwide rail network would require considerable public investment.",
+            "exampleCn": "建设全国性的铁路网络需要大量公共投资。"
+      },
+      {
+            "word": "consume",
+            "phonetic": "/kənˈsjuːm/",
+            "meaning": "消耗；消费",
+            "example": "Modern households consume far more electricity than they did several decades ago.",
+            "exampleCn": "现代家庭消耗的电力远多于几十年前。"
+      },
+      {
+            "word": "contribute",
+            "phonetic": "/kənˈtrɪb.juːt/",
+            "meaning": "促成；贡献",
+            "example": "Poor urban planning can contribute to congestion, pollution, and longer commuting times.",
+            "exampleCn": "不合理的城市规划会加剧拥堵、污染，并延长通勤时间。"
+      },
+      {
+            "word": "controversial",
+            "phonetic": "/ˌkɒn.trəˈvɜː.ʃəl/",
+            "meaning": "有争议的",
+            "example": "Whether university education should be free for everyone remains a controversial issue.",
+            "exampleCn": "大学教育是否应对所有人免费，仍是一个有争议的问题。"
+      },
+      {
+            "word": "decline",
+            "phonetic": "/dɪˈklaɪn/",
+            "meaning": "下降；衰退",
+            "example": "The proportion of people using private cars declined after the metro system was expanded.",
+            "exampleCn": "地铁系统扩建后，使用私家车的人口比例下降了。"
+      },
+      {
+            "word": "demonstrate",
+            "phonetic": "/ˈdem.ən.streɪt/",
+            "meaning": "证明；展示",
+            "example": "These findings demonstrate that early childhood education can have lasting benefits.",
+            "exampleCn": "这些研究结果表明，幼儿教育能够产生长期效益。"
+      },
+      {
+            "word": "derive",
+            "phonetic": "/dɪˈraɪv/",
+            "meaning": "获得；源自",
+            "example": "Many scientific advances derive from collaboration between universities and private industry.",
+            "exampleCn": "许多科学进步源自大学与私营产业之间的合作。"
+      },
+      {
+            "word": "deteriorate",
+            "phonetic": "/dɪˈtɪə.ri.ə.reɪt/",
+            "meaning": "恶化；退化",
+            "example": "Without regular maintenance, public facilities can deteriorate surprisingly quickly.",
+            "exampleCn": "如果缺少定期维护，公共设施可能会以惊人的速度老化。"
+      },
+      {
+            "word": "distribute",
+            "phonetic": "/dɪˈstrɪb.juːt/",
+            "meaning": "分配；分布",
+            "example": "Educational resources should be distributed according to need rather than population alone.",
+            "exampleCn": "教育资源应根据实际需求分配，而不应只依据人口数量。"
+      },
+      {
+            "word": "emphasis",
+            "phonetic": "/ˈem.fə.sɪs/",
+            "meaning": "强调；重点",
+            "example": "The curriculum places greater emphasis on critical thinking than on memorization.",
+            "exampleCn": "该课程更加重视批判性思维，而不是死记硬背。"
+      },
+      {
+            "word": "environment",
+            "phonetic": "/ɪnˈvaɪ.rən.mənt/",
+            "meaning": "环境",
+            "example": "Economic development should not come at the expense of the natural environment.",
+            "exampleCn": "经济发展不应以牺牲自然环境为代价。"
+      },
+      {
+            "word": "establish",
+            "phonetic": "/ɪˈstæb.lɪʃ/",
+            "meaning": "建立；确立",
+            "example": "The city established low-emission zones to reduce pollution in the central district.",
+            "exampleCn": "该城市设立了低排放区，以减少中心城区的污染。"
+      },
+      {
+            "word": "evaluate",
+            "phonetic": "/ɪˈvæl.ju.eɪt/",
+            "meaning": "评价；评估",
+            "example": "Policy makers must evaluate whether the short-term costs are justified by the long-term gains.",
+            "exampleCn": "政策制定者必须评估短期成本是否能被长期收益所证明是合理的。"
+      },
+      {
+            "word": "evidence",
+            "phonetic": "/ˈev.ɪ.dəns/",
+            "meaning": "证据；依据",
+            "example": "There is growing evidence that access to green space improves mental well-being.",
+            "exampleCn": "越来越多的证据表明，接触绿色空间有助于改善心理健康。"
+      },
+      {
+            "word": "factor",
+            "phonetic": "/ˈfæk.tər/",
+            "meaning": "因素",
+            "example": "Housing cost is a major factor influencing where young adults choose to live.",
+            "exampleCn": "住房成本是影响年轻人选择居住地点的一个主要因素。"
+      },
+      {
+            "word": "fluctuate",
+            "phonetic": "/ˈflʌk.tʃu.eɪt/",
+            "meaning": "波动；起伏",
+            "example": "Employment figures tend to fluctuate as seasonal industries expand and contract.",
+            "exampleCn": "随着季节性行业的扩张和收缩，就业数据往往会出现波动。"
+      },
+      {
+            "word": "fundamental",
+            "phonetic": "/ˌfʌn.dəˈmen.təl/",
+            "meaning": "根本的；基础的",
+            "example": "Trust is fundamental to the effective functioning of public institutions.",
+            "exampleCn": "信任是公共机构有效运作的基础。"
+      },
+      {
+            "word": "generate",
+            "phonetic": "/ˈdʒen.ə.reɪt/",
+            "meaning": "产生；创造",
+            "example": "Investment in renewable energy can generate skilled jobs as well as cleaner electricity.",
+            "exampleCn": "投资可再生能源既能创造技术型岗位，也能生产更清洁的电力。"
+      },
+      {
+            "word": "impact",
+            "phonetic": "/ˈɪm.pækt/",
+            "meaning": "影响；冲击",
+            "example": "The expansion of tourism has had a mixed impact on the local economy and environment.",
+            "exampleCn": "旅游业的扩张对当地经济和环境产生了利弊并存的影响。"
+      },
+      {
+            "word": "indicate",
+            "phonetic": "/ˈɪn.dɪ.keɪt/",
+            "meaning": "表明；指出",
+            "example": "Recent survey results indicate that public support for cycling infrastructure is increasing.",
+            "exampleCn": "最近的调查结果表明，公众对自行车基础设施的支持正在增加。"
+      },
+      {
+            "word": "inevitable",
+            "phonetic": "/ɪnˈev.ɪ.tə.bəl/",
+            "meaning": "不可避免的",
+            "example": "Some job displacement may be inevitable as automation becomes more widespread.",
+            "exampleCn": "随着自动化日益普及，部分岗位被替代可能不可避免。"
+      },
+      {
+            "word": "infrastructure",
+            "phonetic": "/ˈɪn.frəˌstrʌk.tʃər/",
+            "meaning": "基础设施",
+            "example": "Reliable digital infrastructure is now essential for education, commerce, and public services.",
+            "exampleCn": "可靠的数字基础设施如今对教育、商业和公共服务都至关重要。"
+      },
+      {
+            "word": "innovative",
+            "phonetic": "/ˈɪn.ə.veɪ.tɪv/",
+            "meaning": "创新的",
+            "example": "Several cities are testing innovative solutions to reduce food waste.",
+            "exampleCn": "一些城市正在试行减少食物浪费的创新方案。"
+      },
+      {
+            "word": "interpret",
+            "phonetic": "/ɪnˈtɜː.prɪt/",
+            "meaning": "解释；理解",
+            "example": "Readers should interpret the figures cautiously because the sample size was relatively small.",
+            "exampleCn": "由于样本量相对较小，读者应谨慎解读这些数据。"
+      },
+      {
+            "word": "maintain",
+            "phonetic": "/meɪnˈteɪn/",
+            "meaning": "维持；维护",
+            "example": "Governments need to maintain public confidence while introducing difficult reforms.",
+            "exampleCn": "政府在推行艰难改革的同时，需要维持公众信心。"
+      },
+      {
+            "word": "majority",
+            "phonetic": "/məˈdʒɒr.ə.ti/",
+            "meaning": "大多数",
+            "example": "A clear majority of participants preferred flexible schedules to fixed working hours.",
+            "exampleCn": "绝大多数参与者更喜欢灵活的工作安排，而不是固定工时。"
+      },
+      {
+            "word": "methodology",
+            "phonetic": "/ˌmeθ.əˈdɒl.ə.dʒi/",
+            "meaning": "方法论；研究方法",
+            "example": "The study's methodology combined household surveys with in-depth interviews.",
+            "exampleCn": "这项研究的方法结合了家庭问卷调查和深度访谈。"
+      },
+      {
+            "word": "occur",
+            "phonetic": "/əˈkɜːr/",
+            "meaning": "发生；出现",
+            "example": "Health problems are more likely to occur when air pollution remains high for long periods.",
+            "exampleCn": "当空气污染长期维持在较高水平时，健康问题更容易出现。"
+      },
+      {
+            "word": "perspective",
+            "phonetic": "/pəˈspek.tɪv/",
+            "meaning": "观点；角度",
+            "example": "From an economic perspective, prevention is often cheaper than dealing with the consequences later.",
+            "exampleCn": "从经济角度看，预防往往比事后处理后果更节省成本。"
+      },
+      {
+            "word": "phenomenon",
+            "phonetic": "/fəˈnɒm.ɪ.nən/",
+            "meaning": "现象",
+            "example": "The rapid growth of online learning is not a temporary phenomenon.",
+            "exampleCn": "在线学习的快速增长并不是一种暂时现象。"
+      },
+      {
+            "word": "policy",
+            "phonetic": "/ˈpɒl.ə.si/",
+            "meaning": "政策；方针",
+            "example": "An effective housing policy must address both supply and affordability.",
+            "exampleCn": "有效的住房政策必须同时解决供应量和可负担性问题。"
+      },
+      {
+            "word": "potential",
+            "phonetic": "/pəˈten.ʃəl/",
+            "meaning": "潜在的；潜力",
+            "example": "Artificial intelligence has the potential to improve diagnosis, but it also raises ethical concerns.",
+            "exampleCn": "人工智能有潜力改善诊断，但同时也引发了伦理方面的担忧。"
+      },
+      {
+            "word": "proportion",
+            "phonetic": "/prəˈpɔː.ʃən/",
+            "meaning": "比例；部分",
+            "example": "The proportion of commuters travelling by bicycle doubled over the ten-year period.",
+            "exampleCn": "在这十年间，骑自行车通勤者的比例翻了一番。"
+      },
+      {
+            "word": "regulate",
+            "phonetic": "/ˈreɡ.jə.leɪt/",
+            "meaning": "监管；调节",
+            "example": "Governments may need to regulate digital platforms more carefully to protect personal data.",
+            "exampleCn": "为保护个人数据，政府可能需要更加严格地监管数字平台。"
+      },
+      {
+            "word": "relevant",
+            "phonetic": "/ˈrel.ə.vənt/",
+            "meaning": "相关的；切题的",
+            "example": "Examples are effective only when they are directly relevant to the main argument.",
+            "exampleCn": "只有与主要论点直接相关时，例子才真正有效。"
+      },
+      {
+            "word": "require",
+            "phonetic": "/rɪˈkwaɪər/",
+            "meaning": "需要；要求",
+            "example": "Reducing carbon emissions will require coordinated action from governments, businesses, and individuals.",
+            "exampleCn": "减少碳排放需要政府、企业和个人采取协调一致的行动。"
+      },
+      {
+            "word": "resource",
+            "phonetic": "/rɪˈzɔːs/",
+            "meaning": "资源",
+            "example": "Clean water is a vital resource that must be managed more efficiently.",
+            "exampleCn": "清洁水源是一项必须得到更高效管理的重要资源。"
+      },
+      {
+            "word": "significant",
+            "phonetic": "/sɪɡˈnɪf.ɪ.kənt/",
+            "meaning": "显著的；重要的",
+            "example": "The new scholarship programme led to a significant increase in applications from rural students.",
+            "exampleCn": "新的奖学金项目使农村学生的申请数量显著增加。"
+      },
+      {
+            "word": "sustainable",
+            "phonetic": "/səˈsteɪ.nə.bəl/",
+            "meaning": "可持续的",
+            "example": "A sustainable transport system should be affordable, reliable, and environmentally responsible.",
+            "exampleCn": "可持续的交通系统应当价格合理、运行可靠，并对环境负责。"
+      },
+      {
+            "word": "trend",
+            "phonetic": "/trend/",
+            "meaning": "趋势；倾向",
+            "example": "The data reveal a clear trend toward smaller households and later marriage.",
+            "exampleCn": "数据表明，家庭规模缩小和晚婚已成为明显趋势。"
+      },
+      {
+            "word": "urbanization",
+            "phonetic": "/ˌɜː.bən.aɪˈzeɪ.ʃən/",
+            "meaning": "城市化",
+            "example": "Rapid urbanization has created new economic opportunities but has also intensified housing pressure.",
+            "exampleCn": "快速城市化创造了新的经济机会，但也加剧了住房压力。"
+      },
+      {
+            "word": "widespread",
+            "phonetic": "/ˈwaɪd.spred/",
+            "meaning": "广泛的；普遍的",
+            "example": "There is widespread agreement that children need stronger protection online.",
+            "exampleCn": "人们普遍认同儿童在网络环境中需要更有力的保护。"
+      }
+];
+
+      const EXPECTED_BOOTSTRAP_VERSION = "5.3.8"; // Runtime guard for the pinned CDN bundle.
+      const STORAGE_KEY = "wordstep_data_v2"; // Preserves compatibility with earlier project versions.
+      const DAILY_WORD_GOAL = 10; // Number of unique words targeted each day.
+      const STUDY_BATCH_SIZE = 10; // Number of words studied before each test.
+
+      const WORD_STATUS = Object.freeze({
+        NEW: "new",
+        MASTERED: "mastered",
+        REVIEW: "review"
+      });
+
+      const SECTION_NAME = Object.freeze({
+        DASHBOARD: "dashboard",
+        STUDY: "study",
+        TEST: "test",
+        WORD_LIST: "word-list",
+        RESOURCES: "resources"
+      });
+
+      const WORD_BY_TEXT = new Map(WORDS.map((wordEntry) => [wordEntry.word, wordEntry]));
+
+      let applicationState = loadApplicationState();
+      let bootstrapIsAvailable = false;
+      let fallbackNotificationTimer = null;
+
+      const learningSession = {
+        studyIndex: 0,
+        testWords: [],
+        testIndex: 0,
+        testScore: 0,
+        testAnswered: false,
+        wrongWords: []
+      };
+
+      document.addEventListener("DOMContentLoaded", initializeApplication);
+
+      function initializeApplication() {
+        document.addEventListener("click", handleDocumentClick);
+        document.addEventListener("change", handleDocumentChange);
+
+        bootstrapIsAvailable = verifyBootstrapRuntime();
+        saveApplicationState();
+        updateDashboard();
+        renderWordTable();
+        prepareTestLanding();
+      }
+
+      function handleDocumentClick(event) {
+        const actionControl = event.target.closest("[data-action]");
+        if (!actionControl) return;
+
+        const actionName = actionControl.dataset.action;
+        const actionHandler = ACTION_HANDLERS[actionName];
+        if (!actionHandler) return;
+
+        actionHandler(actionControl);
+      }
+
+      function handleDocumentChange(event) {
+        if (event.target.id !== "wordStatusFilter") return;
+        renderWordTable();
+      }
+
+      function getElement(elementId) {
+        return document.getElementById(elementId);
+      }
+
+      function setText(elementId, value) {
+        const element = getElement(elementId);
+        if (element) element.textContent = String(value);
+      }
+
+      function setHidden(elementId, shouldHide) {
+        const element = getElement(elementId);
+        if (element) element.classList.toggle("d-none", shouldHide);
+      }
+
+      function createIcon(iconName, extraClass = "") {
+        const icon = document.createElement("i");
+        icon.className = `bi bi-${iconName}${extraClass ? ` ${extraClass}` : ""}`;
+        icon.setAttribute("aria-hidden", "true");
+        return icon;
+      }
+
+      function setButtonContent(buttonId, iconName, label, iconClass = "me-1") {
+        const button = getElement(buttonId);
+        if (!button) return;
+
+        button.replaceChildren(createIcon(iconName, iconClass), document.createTextNode(label));
+      }
+
+      function createDefaultWordRecord() {
+        return {
+          status: WORD_STATUS.NEW,
+          seenCount: 0,
+          correctCount: 0,
+          wrongCount: 0,
+          lastStudiedDate: null
+        };
+      }
+
+      function createDefaultApplicationState() {
+        return {
+          wordRecords: {},
+          checkInDates: [],
+          dailyLearnedWords: {},
+          completedTestCount: 0,
+          currentBatchWords: [],
+          revealedBatchWords: [],
+          isBatchReady: false,
+          isBatchTested: false
+        };
+      }
+
+      function loadApplicationState() {
+        const storedText = localStorage.getItem(STORAGE_KEY);
+        if (!storedText) return createDefaultApplicationState();
+
+        try {
+          return normalizeApplicationState(JSON.parse(storedText));
+        } catch (error) {
+          console.warn("Stored learning data could not be read.", error);
+          return createDefaultApplicationState();
+        }
+      }
+
+      function normalizeApplicationState(rawState) {
+        const validWordSet = new Set(WORDS.map((wordEntry) => wordEntry.word));
+        const currentBatchWords = normalizeWordArray(
+          rawState.currentBatchWords ?? rawState.currentBatch,
+          validWordSet
+        ).slice(0, STUDY_BATCH_SIZE);
+
+        const revealedBatchWords = normalizeWordArray(
+          rawState.revealedBatchWords ?? rawState.revealedInBatch,
+          new Set(currentBatchWords)
+        );
+
+        return {
+          wordRecords: normalizeWordRecords(rawState.wordRecords ?? rawState.words),
+          checkInDates: normalizeStringArray(rawState.checkInDates ?? rawState.checkins),
+          dailyLearnedWords: normalizeDailyActivity(rawState.dailyLearnedWords ?? rawState.dailyActivity),
+          completedTestCount: toNonNegativeInteger(rawState.completedTestCount ?? rawState.testSessions),
+          currentBatchWords,
+          revealedBatchWords,
+          isBatchReady: Boolean(rawState.isBatchReady ?? rawState.batchReady) && currentBatchWords.length > 0,
+          isBatchTested: Boolean(rawState.isBatchTested ?? rawState.batchTested)
+        };
+      }
+
+      function normalizeWordRecords(rawRecords) {
+        const normalizedRecords = {};
+        if (!rawRecords || typeof rawRecords !== "object") return normalizedRecords;
+
+        Object.entries(rawRecords).forEach(([wordText, rawRecord]) => {
+          if (!WORD_BY_TEXT.has(wordText)) return;
+          normalizedRecords[wordText] = normalizeWordRecord(rawRecord);
+        });
+
+        return normalizedRecords;
+      }
+
+      function normalizeWordRecord(rawRecord) {
+        const record = rawRecord && typeof rawRecord === "object" ? rawRecord : {};
+
+        return {
+          status: normalizeWordStatus(record.status),
+          seenCount: toNonNegativeInteger(record.seenCount ?? record.seen),
+          correctCount: toNonNegativeInteger(record.correctCount ?? record.correct),
+          wrongCount: toNonNegativeInteger(record.wrongCount ?? record.wrong),
+          lastStudiedDate: typeof (record.lastStudiedDate ?? record.lastStudied) === "string"
+            ? (record.lastStudiedDate ?? record.lastStudied)
+            : null
+        };
+      }
+
+      function normalizeWordStatus(status) {
+        if (status === WORD_STATUS.MASTERED || status === "familiar") return WORD_STATUS.MASTERED;
+        if (status === WORD_STATUS.REVIEW || status === "unfamiliar") return WORD_STATUS.REVIEW;
+        return WORD_STATUS.NEW;
+      }
+
+      function normalizeStringArray(value) {
+        if (!Array.isArray(value)) return [];
+        return [...new Set(value.filter((item) => typeof item === "string"))];
+      }
+
+      function normalizeWordArray(value, validWordSet) {
+        return normalizeStringArray(value).filter((wordText) => validWordSet.has(wordText));
+      }
+
+      function normalizeDailyActivity(rawActivity) {
+        const normalizedActivity = {};
+        if (!rawActivity || typeof rawActivity !== "object") return normalizedActivity;
+
+        Object.entries(rawActivity).forEach(([dateKey, wordList]) => {
+          normalizedActivity[dateKey] = normalizeWordArray(wordList, new Set(WORDS.map((entry) => entry.word)));
+        });
+
+        return normalizedActivity;
+      }
+
+      function toNonNegativeInteger(value) {
+        const numericValue = Number(value);
+        if (!Number.isFinite(numericValue) || numericValue < 0) return 0;
+        return Math.floor(numericValue);
+      }
+
+      function saveApplicationState() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(applicationState));
+      }
+
+      function getDateKey(date = new Date()) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      function getWordRecord(wordText) {
+        const existingRecord = applicationState.wordRecords[wordText];
+        if (existingRecord) return existingRecord;
+
+        const newRecord = createDefaultWordRecord();
+        applicationState.wordRecords[wordText] = newRecord;
+        return newRecord;
+      }
+
+      function recordWordActivity(wordText, status = null) {
+        const todayKey = getDateKey();
+        const wordRecord = getWordRecord(wordText);
+
+        wordRecord.seenCount += 1;
+        wordRecord.lastStudiedDate = todayKey;
+        if (status) wordRecord.status = status;
+
+        addWordToDailyActivity(todayKey, wordText);
+        saveApplicationState();
+      }
+
+      function addWordToDailyActivity(dateKey, wordText) {
+        const learnedWords = applicationState.dailyLearnedWords[dateKey] ?? [];
+        if (!learnedWords.includes(wordText)) learnedWords.push(wordText);
+        applicationState.dailyLearnedWords[dateKey] = learnedWords;
+      }
+
+      function showSection(sectionName) {
+        document.querySelectorAll("[data-section-panel]").forEach((panel) => {
+          panel.classList.toggle("active", panel.dataset.sectionPanel === sectionName);
+        });
+
+        document.querySelectorAll("#mainNavigation [data-section]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.section === sectionName);
+        });
+
+        renderSection(sectionName);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderSection(sectionName) {
+        if (sectionName === SECTION_NAME.DASHBOARD) return updateDashboard();
+        if (sectionName === SECTION_NAME.STUDY) return openStudySection();
+        if (sectionName === SECTION_NAME.TEST) return prepareTestLanding();
+        if (sectionName === SECTION_NAME.WORD_LIST) return renderWordTable();
+      }
+
+      function updateDashboard() {
+        const todayKey = getDateKey();
+        const todayLearnedCount = (applicationState.dailyLearnedWords[todayKey] ?? []).length;
+        const wordRecords = WORDS.map((wordEntry) => getWordRecord(wordEntry.word));
+        const masteredCount = countRecordsByStatus(wordRecords, WORD_STATUS.MASTERED);
+        const reviewCount = countRecordsByStatus(wordRecords, WORD_STATUS.REVIEW);
+        const correctAnswerCount = sumRecordField(wordRecords, "correctCount");
+        const wrongAnswerCount = sumRecordField(wordRecords, "wrongCount");
+        const totalAttemptCount = correctAnswerCount + wrongAnswerCount;
+        const accuracyPercentage = totalAttemptCount
+          ? Math.round((correctAnswerCount / totalAttemptCount) * 100)
+          : 0;
+        const dailyProgressPercentage = Math.min(
+          100,
+          Math.round((todayLearnedCount / DAILY_WORD_GOAL) * 100)
+        );
+
+        setText("todayLearnedCount", todayLearnedCount);
+        setText("masteredWordCount", masteredCount);
+        setText("reviewWordCount", reviewCount);
+        setText("accuracyPercentage", accuracyPercentage);
+        setText("streakCount", calculateCheckInStreak());
+        setText("dailyProgressText", `${todayLearnedCount} / ${DAILY_WORD_GOAL}`);
+        setText("totalWordCount", WORDS.length);
+        setText("completedTestCount", `${applicationState.completedTestCount} 次`);
+        setText("totalCheckInCount", `${applicationState.checkInDates.length} 天`);
+
+        getElement("dailyProgress").value = dailyProgressPercentage;
+        updateCheckInButton(todayKey);
+        updateLearningFlowButtons();
+      }
+
+      function countRecordsByStatus(records, status) {
+        return records.filter((record) => record.status === status).length;
+      }
+
+      function sumRecordField(records, fieldName) {
+        return records.reduce((total, record) => total + record[fieldName], 0);
+      }
+
+      function updateCheckInButton(todayKey) {
+        const checkInButton = getElement("checkInButton");
+        const alreadyCheckedIn = applicationState.checkInDates.includes(todayKey);
+
+        checkInButton.disabled = alreadyCheckedIn;
+        setButtonContent(
+          "checkInButton",
+          alreadyCheckedIn ? "check2-circle" : "calendar-check",
+          alreadyCheckedIn ? "今日已打卡" : "完成今日打卡",
+          "me-2"
+        );
+      }
+
+      function updateLearningFlowButtons() {
+        const currentBatch = getCurrentBatchEntries();
+
+        if (applicationState.isBatchReady && currentBatch.length) {
+          setButtonContent("studyActionButton", "book-half", "复习本轮单词");
+          setButtonContent("learningFlowButton", "ui-checks-grid", "测试刚背过的单词");
+          return;
+        }
+
+        if (currentBatch.length && !applicationState.isBatchTested) {
+          setButtonContent("studyActionButton", "book-half", "继续背诵");
+          setButtonContent("learningFlowButton", "arrow-repeat", "完成背诵后测试");
+          return;
+        }
+
+        setButtonContent("studyActionButton", "book-half", "开始背诵");
+        setButtonContent("learningFlowButton", "arrow-repeat", "先背诵，再测试");
+      }
+
+      function calculateCheckInStreak() {
+        const checkedInDates = new Set(applicationState.checkInDates);
+        const cursorDate = new Date();
+        let streakCount = 0;
+
+        if (!checkedInDates.has(getDateKey(cursorDate))) {
+          cursorDate.setDate(cursorDate.getDate() - 1);
+        }
+
+        while (checkedInDates.has(getDateKey(cursorDate))) {
+          streakCount += 1;
+          cursorDate.setDate(cursorDate.getDate() - 1);
+        }
+
+        return streakCount;
+      }
+
+      function completeTodayCheckIn() {
+        const todayKey = getDateKey();
+        if (applicationState.checkInDates.includes(todayKey)) return;
+
+        applicationState.checkInDates.push(todayKey);
+        applicationState.checkInDates.sort();
+        saveApplicationState();
+        updateDashboard();
+        showNotification("今日打卡成功，继续保持。");
+      }
+
+      function shuffleItems(items) {
+        const shuffledItems = [...items];
+
+        for (let index = shuffledItems.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          [shuffledItems[index], shuffledItems[randomIndex]] =
+            [shuffledItems[randomIndex], shuffledItems[index]];
+        }
+
+        return shuffledItems;
+      }
+
+      function getCurrentBatchEntries() {
+        return applicationState.currentBatchWords
+          .map((wordText) => WORD_BY_TEXT.get(wordText))
+          .filter(Boolean);
+      }
+
+      function selectNextStudyBatch() {
+        const prioritizedWords = {
+          review: [],
+          new: [],
+          mastered: []
+        };
+
+        WORDS.forEach((wordEntry) => {
+          const status = getWordRecord(wordEntry.word).status;
+          prioritizedWords[status].push(wordEntry.word);
+        });
+
+        return [
+          ...shuffleItems(prioritizedWords.review),
+          ...shuffleItems(prioritizedWords.new),
+          ...shuffleItems(prioritizedWords.mastered)
+        ].slice(0, Math.min(STUDY_BATCH_SIZE, WORDS.length));
+      }
+
+      function createStudyBatch(preferredWords = null) {
+        const validWordSet = new Set(WORDS.map((wordEntry) => wordEntry.word));
+        const selectedWords = Array.isArray(preferredWords)
+          ? preferredWords.filter((wordText) => validWordSet.has(wordText))
+          : selectNextStudyBatch();
+
+        applicationState.currentBatchWords = selectedWords.slice(0, STUDY_BATCH_SIZE);
+        applicationState.revealedBatchWords = [];
+        applicationState.isBatchReady = false;
+        applicationState.isBatchTested = false;
+
+        learningSession.studyIndex = 0;
+        resetTestSession();
+        saveApplicationState();
+      }
+
+      function ensureStudyBatch() {
+        const currentBatch = getCurrentBatchEntries();
+
+        if (!currentBatch.length || applicationState.isBatchTested) {
+          createStudyBatch();
+        }
+
+        const updatedBatch = getCurrentBatchEntries();
+        if (learningSession.studyIndex >= updatedBatch.length) {
+          learningSession.studyIndex = 0;
+        }
+      }
+
+      function startStudySession(forceNewBatch = false, preferredWords = null) {
+        const shouldCreateBatch =
+          forceNewBatch ||
+          Array.isArray(preferredWords) ||
+          !getCurrentBatchEntries().length ||
+          applicationState.isBatchTested;
+
+        if (shouldCreateBatch) createStudyBatch(preferredWords);
+        showSection(SECTION_NAME.STUDY);
+      }
+
+      function continueLearningFlow() {
+        if (applicationState.isBatchReady && getCurrentBatchEntries().length) {
+          startBatchTest();
+          return;
+        }
+
+        startStudySession();
+      }
+
+      function openStudySection() {
+        ensureStudyBatch();
+        renderStudyWord();
+      }
+
+      function renderStudyWord() {
+        const currentBatch = getCurrentBatchEntries();
+        const currentWord = currentBatch[learningSession.studyIndex];
+        if (!currentWord) return;
+
+        const revealedCount = countRevealedBatchWords();
+        const answerIsRevealed = applicationState.revealedBatchWords.includes(currentWord.word);
+
+        setText("studyPositionText", `${learningSession.studyIndex + 1} / ${currentBatch.length}`);
+        setText("studyProgressText", `已翻开 ${revealedCount} / ${currentBatch.length}`);
+        setText("studyWordText", currentWord.word);
+        setText("studyPhoneticText", currentWord.phonetic);
+        setText("studyMeaningText", currentWord.meaning);
+        setText("studyExampleText", currentWord.example);
+        setText("studyExampleTranslation", currentWord.exampleCn);
+
+        getElement("studyProgress").value = calculatePercentage(revealedCount, currentBatch.length);
+        setStudyAnswerVisibility(answerIsRevealed);
+        updateStudyNavigation(currentBatch.length, answerIsRevealed);
+      }
+
+      function countRevealedBatchWords() {
+        return applicationState.revealedBatchWords.filter((wordText) =>
+          applicationState.currentBatchWords.includes(wordText)
+        ).length;
+      }
+
+      function calculatePercentage(part, total) {
+        if (!total) return 0;
+        return Math.round((part / total) * 100);
+      }
+
+      function setStudyAnswerVisibility(isVisible) {
+        getElement("studyRevealButton").setAttribute("aria-expanded", String(isVisible));
+        setHidden("studyCover", isVisible);
+        setHidden("studyAnswer", !isVisible);
+      }
+
+      function updateStudyNavigation(batchLength, answerIsRevealed) {
+        const previousButton = getElement("previousStudyButton");
+        const nextButton = getElement("nextStudyButton");
+        const isLastWord = learningSession.studyIndex === batchLength - 1;
+
+        previousButton.disabled = learningSession.studyIndex === 0;
+        nextButton.disabled = !answerIsRevealed;
+
+        setButtonContent(
+          "nextStudyButton",
+          isLastWord ? "ui-checks-grid" : "arrow-right",
+          isLastWord ? "完成背诵，开始测试" : "已记住，下一个",
+          "ms-1"
+        );
+      }
+
+      function revealCurrentStudyAnswer() {
+        const currentWord = getCurrentBatchEntries()[learningSession.studyIndex];
+        if (!currentWord) return;
+        if (applicationState.revealedBatchWords.includes(currentWord.word)) return;
+
+        applicationState.revealedBatchWords.push(currentWord.word);
+        recordWordActivity(currentWord.word);
+        renderStudyWord();
+        updateDashboard();
+      }
+
+      function showPreviousStudyWord() {
+        if (learningSession.studyIndex === 0) return;
+        learningSession.studyIndex -= 1;
+        renderStudyWord();
+      }
+
+      function showNextStudyWord() {
+        const currentBatch = getCurrentBatchEntries();
+        const currentWord = currentBatch[learningSession.studyIndex];
+        if (!currentWord) return;
+
+        const answerIsRevealed = applicationState.revealedBatchWords.includes(currentWord.word);
+        if (!answerIsRevealed) {
+          showNotification("请先点击遮挡区域，查看释义和例句。");
+          return;
+        }
+
+        if (learningSession.studyIndex < currentBatch.length - 1) {
+          learningSession.studyIndex += 1;
+          renderStudyWord();
+          return;
+        }
+
+        completeStudyBatch();
+      }
+
+      function completeStudyBatch() {
+        const currentBatch = getCurrentBatchEntries();
+        if (countRevealedBatchWords() < currentBatch.length) {
+          showNotification("请先翻开并学习本轮全部单词。");
+          return;
+        }
+
+        applicationState.isBatchReady = true;
+        applicationState.isBatchTested = false;
+        saveApplicationState();
+        updateDashboard();
+        showNotification("本轮背诵完成，现在测试刚才学习的单词。");
+        startBatchTest();
+      }
+
+      function speakWord(wordText) {
+        if (!("speechSynthesis" in window)) {
+          showNotification("当前浏览器不支持语音朗读。");
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const speech = new SpeechSynthesisUtterance(wordText);
+        speech.lang = "en-US";
+        speech.rate = 0.84;
+        window.speechSynthesis.speak(speech);
+      }
+
+      function speakCurrentStudyWord() {
+        const currentWord = getCurrentBatchEntries()[learningSession.studyIndex];
+        if (currentWord) speakWord(currentWord.word);
+      }
+
+      function speakCurrentTestWord() {
+        const currentWord = learningSession.testWords[learningSession.testIndex];
+        if (currentWord) speakWord(currentWord.word);
+      }
+
+      async function copyCurrentStudyWord() {
+        const currentWord = getCurrentBatchEntries()[learningSession.studyIndex];
+        if (!currentWord) return;
+
+        const copyText = [
+          currentWord.word,
+          currentWord.phonetic,
+          currentWord.meaning,
+          currentWord.example,
+          currentWord.exampleCn
+        ].join("\n");
+
+        const copied = await writeTextToClipboard(copyText);
+        showNotification(copied ? "当前单词内容已复制到剪贴板。" : "复制失败，请检查浏览器剪贴板权限。");
+      }
+
+      async function writeTextToClipboard(text) {
+        if (navigator.clipboard?.writeText) {
+          try {
+            await navigator.clipboard.writeText(text);
+            return true;
+          } catch (error) {
+            console.warn("Clipboard API was unavailable.", error);
+          }
+        }
+
+        return copyTextWithTemporaryInput(text);
+      }
+
+      function copyTextWithTemporaryInput(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.setAttribute("readonly", "");
+        textArea.className = "visually-hidden";
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        let copied = false;
+
+        try {
+          copied = document.execCommand("copy");
+        } catch (error) {
+          console.warn("Legacy clipboard fallback failed.", error);
+        }
+
+        textArea.remove();
+        return copied;
+      }
+
+      function prepareTestLanding() {
+        if (isTestPanelActive()) return;
+
+        setHidden("testStartPanel", false);
+        setHidden("testQuestionPanel", true);
+        setHidden("testResultPanel", true);
+
+        const currentBatch = getCurrentBatchEntries();
+
+        if (applicationState.isBatchReady && currentBatch.length) {
+          setText("testStartTitle", "本轮背诵已完成");
+          setText("testStartDescription", `现在将测试刚刚背过的 ${currentBatch.length} 个单词。测试结果会自动更新掌握状态。`);
+          setButtonContent("testStartButton", "ui-checks-grid", "开始本轮测试");
+          return;
+        }
+
+        if (currentBatch.length && !applicationState.isBatchTested) {
+          setText("testStartTitle", "请先完成本轮背诵");
+          setText("testStartDescription", `你正在背诵一组 ${currentBatch.length} 个单词。全部翻开后才能测试这一组。`);
+          setButtonContent("testStartButton", "book-half", "继续背诵");
+          return;
+        }
+
+        setText("testStartTitle", "请先背诵一组单词");
+        setText("testStartDescription", "每轮先背诵 10 个词，再测试同一组。答对归为已掌握，答错归为需复习。");
+        setButtonContent("testStartButton", "book-half", "开始背诵");
+      }
+
+      function isTestPanelActive() {
+        const questionIsVisible = !getElement("testQuestionPanel").classList.contains("d-none");
+        const resultIsVisible = !getElement("testResultPanel").classList.contains("d-none");
+        return questionIsVisible || resultIsVisible;
+      }
+
+      function handleTestStart() {
+        if (applicationState.isBatchReady && getCurrentBatchEntries().length) {
+          startBatchTest();
+          return;
+        }
+
+        startStudySession();
+      }
+
+      function resetTestSession() {
+        learningSession.testWords = [];
+        learningSession.testIndex = 0;
+        learningSession.testScore = 0;
+        learningSession.testAnswered = false;
+        learningSession.wrongWords = [];
+      }
+
+      function startBatchTest() {
+        const currentBatch = getCurrentBatchEntries();
+
+        if (!applicationState.isBatchReady || !currentBatch.length) {
+          showSection(SECTION_NAME.TEST);
+          prepareTestLanding();
+          showNotification("请先完成一轮背诵，再开始测试。");
+          return;
+        }
+
+        resetTestSession();
+        learningSession.testWords = shuffleItems(currentBatch);
+
+        setHidden("testStartPanel", true);
+        setHidden("testResultPanel", true);
+        setHidden("testQuestionPanel", false);
+
+        showSection(SECTION_NAME.TEST);
+        renderTestQuestion();
+      }
+
+      function renderTestQuestion() {
+        const currentWord = learningSession.testWords[learningSession.testIndex];
+        if (!currentWord) return;
+
+        learningSession.testAnswered = false;
+
+        setText("testPositionText", `${learningSession.testIndex + 1} / ${learningSession.testWords.length}`);
+        setText("liveTestScore", learningSession.testScore);
+        setText("testWordText", currentWord.word);
+        setText("testPhoneticText", currentWord.phonetic);
+
+        getElement("testProgress").value = calculatePercentage(
+          learningSession.testIndex + 1,
+          learningSession.testWords.length
+        );
+
+        setHidden("testFeedback", true);
+        setHidden("nextTestButton", true);
+        getElement("testFeedback").replaceChildren();
+
+        renderTestOptions(currentWord);
+      }
+
+      function renderTestOptions(currentWord) {
+        const distractorMeanings = shuffleItems(
+          WORDS.filter((wordEntry) => wordEntry.word !== currentWord.word)
+        ).slice(0, 3).map((wordEntry) => wordEntry.meaning);
+
+        const optionMeanings = shuffleItems([currentWord.meaning, ...distractorMeanings]);
+        const optionList = getElement("testOptionList");
+        const optionColumns = optionMeanings.map(createTestOptionColumn);
+
+        optionList.replaceChildren(...optionColumns);
+      }
+
+      function createTestOptionColumn(meaning) {
+        const column = document.createElement("div");
+        const button = document.createElement("button");
+
+        column.className = "col-md-6";
+        button.type = "button";
+        button.className = "btn test-option w-100 p-3";
+        button.dataset.action = "answer-test-question";
+        button.dataset.meaning = meaning;
+        button.textContent = meaning;
+
+        column.appendChild(button);
+        return column;
+      }
+
+      function answerTestQuestion(optionButton) {
+        if (learningSession.testAnswered) return;
+
+        const currentWord = learningSession.testWords[learningSession.testIndex];
+        const selectedMeaning = optionButton.dataset.meaning;
+        const answerIsCorrect = selectedMeaning === currentWord.meaning;
+        const outcomeStatus = answerIsCorrect ? WORD_STATUS.MASTERED : WORD_STATUS.REVIEW;
+        const wordRecord = getWordRecord(currentWord.word);
+
+        learningSession.testAnswered = true;
+        recordWordActivity(currentWord.word, outcomeStatus);
+
+        if (answerIsCorrect) {
+          learningSession.testScore += 1;
+          wordRecord.correctCount += 1;
+        } else {
+          wordRecord.wrongCount += 1;
+          learningSession.wrongWords.push(currentWord);
+        }
+
+        saveApplicationState();
+        markTestOptions(currentWord.meaning, optionButton, answerIsCorrect);
+        renderTestFeedback(currentWord, answerIsCorrect);
+        setText("liveTestScore", learningSession.testScore);
+        updateNextTestButton();
+      }
+
+      function markTestOptions(correctMeaning, selectedButton, answerIsCorrect) {
+        document.querySelectorAll("#testOptionList .test-option").forEach((button) => {
+          button.disabled = true;
+          button.classList.toggle("correct", button.dataset.meaning === correctMeaning);
+          button.classList.toggle("wrong", !answerIsCorrect && button === selectedButton);
+        });
+      }
+
+      function renderTestFeedback(currentWord, answerIsCorrect) {
+        const feedback = getElement("testFeedback");
+        const heading = document.createElement("strong");
+        const example = document.createElement("div");
+        const translation = document.createElement("div");
+
+        feedback.className = `alert mt-4 mb-0 ${answerIsCorrect ? "alert-success" : "alert-danger"}`;
+        heading.textContent = answerIsCorrect
+          ? "回答正确，已标记为已掌握。"
+          : `回答错误，正确答案是：${currentWord.meaning}`;
+        example.className = "test-feedback-example";
+        example.textContent = currentWord.example;
+        translation.className = "test-feedback-translation";
+        translation.textContent = currentWord.exampleCn;
+
+        feedback.replaceChildren(heading, example, translation);
+      }
+
+      function updateNextTestButton() {
+        const isLastQuestion = learningSession.testIndex === learningSession.testWords.length - 1;
+        setHidden("nextTestButton", false);
+        setButtonContent(
+          "nextTestButton",
+          isLastQuestion ? "bar-chart" : "arrow-right",
+          isLastQuestion ? "查看结果" : "下一题",
+          "ms-1"
+        );
+      }
+
+      function showNextTestQuestion() {
+        if (!learningSession.testAnswered) return;
+
+        if (learningSession.testIndex < learningSession.testWords.length - 1) {
+          learningSession.testIndex += 1;
+          renderTestQuestion();
+          return;
+        }
+
+        finishBatchTest();
+      }
+
+      function finishBatchTest() {
+        applicationState.completedTestCount += 1;
+        applicationState.isBatchReady = false;
+        applicationState.isBatchTested = true;
+        saveApplicationState();
+
+        setHidden("testQuestionPanel", true);
+        setHidden("testResultPanel", false);
+
+        setText("finalTestScore", learningSession.testScore);
+        setText("roundMasteredCount", learningSession.testScore);
+        setText("roundReviewCount", learningSession.wrongWords.length);
+
+        renderWrongWordList();
+        updateDashboard();
+      }
+
+      function renderWrongWordList() {
+        const hasWrongWords = learningSession.wrongWords.length > 0;
+
+        setHidden("wrongWordsContainer", !hasWrongWords);
+        setHidden("reviewWrongWordsButton", !hasWrongWords);
+
+        const wrongWordList = getElement("wrongWordList");
+        if (!hasWrongWords) {
+          wrongWordList.replaceChildren();
+          return;
+        }
+
+        wrongWordList.replaceChildren(...learningSession.wrongWords.map(createWrongWordRow));
+      }
+
+      function createWrongWordRow(wordEntry) {
+        const row = document.createElement("div");
+        const header = document.createElement("div");
+        const wordGroup = document.createElement("div");
+        const wordText = document.createElement("strong");
+        const phoneticText = document.createElement("span");
+        const meaningText = document.createElement("strong");
+        const exampleText = document.createElement("div");
+
+        row.className = "list-group-item py-3";
+        header.className = "d-flex flex-column flex-md-row justify-content-between gap-2";
+        wordText.className = "fs-5";
+        wordText.textContent = wordEntry.word;
+        phoneticText.className = "text-primary ms-2";
+        phoneticText.textContent = wordEntry.phonetic;
+        meaningText.textContent = wordEntry.meaning;
+        exampleText.className = "text-secondary mt-2";
+        exampleText.textContent = wordEntry.example;
+
+        wordGroup.append(wordText, phoneticText);
+        header.append(wordGroup, meaningText);
+        row.append(header, exampleText);
+
+        return row;
+      }
+
+      function startWrongWordReview() {
+        const wrongWordTexts = learningSession.wrongWords.map((wordEntry) => wordEntry.word);
+
+        if (!wrongWordTexts.length) {
+          showNotification("本轮没有错词，可以开始下一组。");
+          startStudySession(true);
+          return;
+        }
+
+        startStudySession(true, wrongWordTexts);
+      }
+
+      function renderWordTable() {
+        const selectedStatus = getElement("wordStatusFilter").value;
+        const filteredWords = filterWordsByStatus(selectedStatus);
+        const tableBody = getElement("wordTableBody");
+
+        tableBody.replaceChildren(...filteredWords.map(createWordTableRow));
+        setHidden("wordTableEmptyState", filteredWords.length > 0);
+      }
+
+      function filterWordsByStatus(selectedStatus) {
+        if (selectedStatus === "all") return WORDS;
+
+        return WORDS.filter((wordEntry) =>
+          getWordRecord(wordEntry.word).status === selectedStatus
+        );
+      }
+
+      function createWordTableRow(wordEntry) {
+        const wordRecord = getWordRecord(wordEntry.word);
+        const row = document.createElement("tr");
+
+        row.append(
+          createTableCell(wordEntry.word, "fw-bold"),
+          createTableCell(wordEntry.phonetic, "text-primary"),
+          createTableCell(wordEntry.meaning),
+          createStatusCell(wordRecord.status),
+          createAnswerRecordCell(wordRecord),
+          createWordActionCell(wordEntry.word)
+        );
+
+        return row;
+      }
+
+      function createTableCell(text, className = "") {
+        const cell = document.createElement("td");
+        cell.className = className;
+        cell.textContent = text;
+        return cell;
+      }
+
+      function createStatusCell(status) {
+        const cell = document.createElement("td");
+        const badge = document.createElement("span");
+        const statusPresentation = getStatusPresentation(status);
+
+        badge.className = `badge ${statusPresentation.className}`;
+        badge.textContent = statusPresentation.label;
+        cell.appendChild(badge);
+
+        return cell;
+      }
+
+      function getStatusPresentation(status) {
+        if (status === WORD_STATUS.MASTERED) {
+          return { className: "badge-mastered", label: "已掌握" };
+        }
+
+        if (status === WORD_STATUS.REVIEW) {
+          return { className: "badge-review", label: "需复习" };
+        }
+
+        return { className: "badge-new", label: "未测试" };
+      }
+
+      function createAnswerRecordCell(wordRecord) {
+        const cell = document.createElement("td");
+        const correctText = document.createElement("span");
+        const separator = document.createElement("span");
+        const wrongText = document.createElement("span");
+
+        correctText.className = "text-success";
+        correctText.textContent = `${wordRecord.correctCount} 对`;
+        separator.className = "text-secondary mx-1";
+        separator.textContent = "/";
+        wrongText.className = "text-danger";
+        wrongText.textContent = `${wordRecord.wrongCount} 错`;
+
+        cell.append(correctText, separator, wrongText);
+        return cell;
+      }
+
+      function createWordActionCell(wordText) {
+        const cell = document.createElement("td");
+        const button = document.createElement("button");
+
+        cell.className = "text-end";
+        button.type = "button";
+        button.className = "btn btn-sm btn-soft-primary rounded-circle";
+        button.dataset.action = "speak-word";
+        button.dataset.word = wordText;
+        button.setAttribute("aria-label", `朗读 ${wordText}`);
+        button.appendChild(createIcon("volume-up"));
+
+        cell.appendChild(button);
+        return cell;
+      }
+
+      function resetApplicationData() {
+        const confirmed = window.confirm("确定要清除所有学习、测试和打卡记录吗？此操作无法撤销。");
+        if (!confirmed) return;
+
+        localStorage.removeItem(STORAGE_KEY);
+        applicationState = createDefaultApplicationState();
+        learningSession.studyIndex = 0;
+        resetTestSession();
+
+        setHidden("testQuestionPanel", true);
+        setHidden("testResultPanel", true);
+        setHidden("testStartPanel", false);
+
+        saveApplicationState();
+        updateDashboard();
+        renderWordTable();
+        prepareTestLanding();
+        showNotification("所有学习记录已重置。");
+      }
+
+      function verifyBootstrapRuntime() {
+        const actualVersion = window.bootstrap?.Toast?.VERSION ?? "";
+        const versionIsCorrect = actualVersion === EXPECTED_BOOTSTRAP_VERSION;
+        const statusAlert = getElement("bootstrapStatusAlert");
+
+        statusAlert.classList.toggle("d-none", versionIsCorrect);
+        if (versionIsCorrect) return true;
+
+        statusAlert.textContent =
+          `Bootstrap 未正确加载或版本不匹配。期望 ${EXPECTED_BOOTSTRAP_VERSION}，检测到 ${actualVersion || "未加载"}。`;
+        return false;
+      }
+
+      function showNotification(message) {
+        setText("notificationMessage", message);
+
+        if (bootstrapIsAvailable) {
+          window.bootstrap.Toast.getOrCreateInstance(
+            getElement("notificationToast"),
+            { delay: 2200 }
+          ).show();
+          return;
+        }
+
+        showFallbackNotification(message);
+      }
+
+      function showFallbackNotification(message) {
+        const fallback = getElement("notificationFallback");
+
+        clearTimeout(fallbackNotificationTimer);
+        fallback.textContent = message;
+        fallback.classList.remove("d-none");
+
+        fallbackNotificationTimer = window.setTimeout(() => {
+          fallback.classList.add("d-none");
+        }, 2400);
+      }
+
+      const ACTION_HANDLERS = Object.freeze({
+        "show-section": (control) => showSection(control.dataset.section),
+        "complete-check-in": () => completeTodayCheckIn(),
+        "start-study": () => startStudySession(),
+        "start-new-batch": () => startStudySession(true),
+        "continue-learning-flow": () => continueLearningFlow(),
+        "speak-study-word": () => speakCurrentStudyWord(),
+        "copy-study-word": () => copyCurrentStudyWord(),
+        "reveal-study-answer": () => revealCurrentStudyAnswer(),
+        "previous-study-word": () => showPreviousStudyWord(),
+        "next-study-word": () => showNextStudyWord(),
+        "handle-test-start": () => handleTestStart(),
+        "speak-test-word": () => speakCurrentTestWord(),
+        "answer-test-question": (control) => answerTestQuestion(control),
+        "next-test-question": () => showNextTestQuestion(),
+        "review-wrong-words": () => startWrongWordReview(),
+        "speak-word": (control) => speakWord(control.dataset.word),
+        "reset-application-data": () => resetApplicationData()
+      });
+    })();
+  </script>
+</body>
+</html>
