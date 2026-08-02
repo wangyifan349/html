@@ -10,8 +10,8 @@
 
   <style>
     /* =========================================================
-       红黑护眼配色：所有自定义界面色值的蓝色通道均为 0。
-       红色通道保持高值，绿色通道受到限制，避免黄褐色观感。
+       Red-black eye-comfort palette: the blue channel is set to 0 for all custom interface colors.
+       The red channel remains high while the green channel is constrained to avoid a yellow-brown appearance.
        ========================================================= */
     :root {
       --bg: #000000;
@@ -95,7 +95,7 @@
       margin-inline: auto;
     }
 
-    /* 顶部导航保持轻薄，避免占据手机可视高度。 */
+    /* Keep the top navigation compact so it does not consume mobile viewport height. */
     .site-header {
       position: fixed;
       z-index: 50;
@@ -143,7 +143,7 @@
       white-space: nowrap;
     }
 
-    /* Hero 比原页面更紧凑，让工具列表更快进入屏幕。 */
+    /* Keep the hero section compact so the tool list enters the viewport sooner. */
     .hero {
       padding: calc(var(--header-height) + 36px) 0 28px;
       border-bottom: 1px solid rgba(255, 40, 0, 0.10);
@@ -174,7 +174,7 @@
       font-size: clamp(0.94rem, 1.5vw, 1.08rem);
     }
 
-    /* 桌面端工具栏吸顶；移动端会取消吸顶，防止遮挡工具。 */
+    /* Keep the toolbar sticky on desktop; disable stickiness on mobile to avoid covering tools. */
     .toolbar-wrap {
       position: sticky;
       z-index: 40;
@@ -229,7 +229,7 @@
       color: var(--muted-2);
     }
 
-    /* 浏览器原生输入控件也统一使用红色通道，避免系统默认蓝色。 */
+    /* Use the red accent for native browser form controls to avoid the default system blue. */
     .search-input {
       caret-color: var(--accent-strong);
     }
@@ -467,7 +467,7 @@
       border-top: 1px solid var(--line);
     }
 
-    /* 自动网格：宽屏最多利用横向空间，小屏自然降为单列。 */
+    /* Responsive grid: use available width on large screens and collapse naturally to one column on small screens. */
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -688,7 +688,7 @@
       font-weight: 800;
     }
 
-    /* 页面最底部的小号赞助信息。地址允许换行，避免手机端横向溢出。 */
+    /* Small sponsorship section at the bottom. Addresses may wrap to prevent horizontal overflow on mobile. */
     .sponsor-note {
       flex: 0 0 100%;
       width: 100%;
@@ -723,7 +723,7 @@
       text-transform: uppercase;
     }
 
-    /* 手机专用控件默认隐藏，仅在窄屏启用。 */
+    /* Mobile-only controls are hidden by default and enabled on narrow screens. */
     .mobile-toolbar-head,
     .mobile-filter-toggle {
       display: none;
@@ -731,11 +731,11 @@
 
     @media (max-width: 767.98px) {
       /*
-       * 手机端采用“工具优先”模式：
-       * 1. 导航、Hero、说明和安全提示默认彻底隐藏；
-       * 2. 搜索与分类筛选放入按需打开的全屏抽屉；
-       * 3. 首屏只保留一条极薄的结果/筛选控制条；
-       * 4. 工具列表从页面顶部约 40px 处开始，最大化有效内容面积。
+       * Mobile uses a tool-first layout:
+       * 1. Navigation, hero content, descriptions, and the security notice are hidden by default;
+       * 2. Search and category filters are placed in an on-demand full-screen drawer;
+       * 3. The initial viewport keeps only a slim results/filter control bar;
+       * 4. The tool list begins about 40px from the top to maximize usable content area.
        */
       :root {
         --header-height: 0px;
@@ -755,7 +755,7 @@
         padding: 0;
       }
 
-      /* 搜索筛选默认不占布局；点击“搜索 / 筛选”后才覆盖显示。 */
+      /* Search and filters do not occupy layout space by default; they appear as an overlay when opened. */
       .toolbar-wrap {
         display: none;
         position: fixed;
@@ -841,7 +841,7 @@
         overflow: hidden;
       }
 
-      /* 工具内容从页面最上方开始。 */
+      /* Start tool content near the top of the page. */
       .content-section {
         padding: 4px 0 30px;
       }
@@ -882,7 +882,7 @@
         box-shadow: none;
       }
 
-      /* 分类栏只显示名称和箭头，移除图标、副标题和数量徽章。 */
+      /* Show only the category name and arrow; remove icons, subtitles, and count badges. */
       .category-summary {
         grid-template-columns: minmax(0, 1fr) 16px;
         gap: 6px;
@@ -914,7 +914,7 @@
         gap: 4px;
       }
 
-      /* 工具卡片压缩非核心装饰，使一屏能看到更多真实工具。 */
+      /* Reduce nonessential decoration in tool cards so more tools fit within one viewport. */
       .tool-card {
         padding: 9px;
         border-radius: 9px;
@@ -959,7 +959,7 @@
         margin-bottom: 7px;
       }
 
-      /* 手机上最多展示前三个标签，避免标签占据整张卡片。 */
+      /* Show at most the first three tags on mobile so tags do not dominate the card. */
       .tool-tag {
         padding: 2px 5px;
         font-size: 0.54rem;
@@ -1107,7 +1107,7 @@
     <div class="page-shell footer-inner">
       <span><span class="footer-brand">OpenCipher</span> · Security Tools</span>
 
-      <!-- 赞助信息仅放在页面最底部，不影响上方工具内容和交互。 -->
+      <!-- Sponsorship information appears only at the bottom and does not affect the tools or interactions above. -->
       <div class="sponsor-note">
         <p class="sponsor-title">If this page has been helpful, please consider supporting the author.</p>
         <div class="sponsor-addresses" aria-label="Cryptocurrency donation addresses">
@@ -1123,10 +1123,10 @@
     "use strict";
 
     /*
-     * 数据来源说明：
-     * 原页面体积约 500 KB，工具数据已固定读取自当前版本的 GitHub 提交。
-     * 因为使用固定 commit，不会在你以后替换 security_tools.html 时产生递归读取。
-     * 若希望完全离线，可将该提交中的 TOOL_CATEGORIES 数组直接粘贴到本文件中。
+     * Data source notes:
+     * The original page is about 500 KB; tool data is loaded from a pinned GitHub commit for this version.
+     * Because the commit is pinned, replacing security_tools.html later will not create recursive loading.
+     * For a fully offline version, paste the TOOL_CATEGORIES array from that commit directly into this file.
      */
     const SOURCE_URL =
       "https://raw.githubusercontent.com/wangyifan349/html/0f171ccd2307fbcc64f23381f569de28025a94e1/security_tools.html";
@@ -1139,10 +1139,10 @@
     };
 
     /*
-     * 本次仅处理用户指定的密码管理器和两步验证器：
-     * - 已存在的指定工具只更新简介，不改变名称、标签、状态和链接；
-     * - FreeOTP 若原目录不存在，则追加到原来的密码与双重验证分类；
-     * - 其他所有既有工具条目保持原样。
+     * This update handles only the user-specified password managers and two-factor authenticators:
+     * - Existing specified tools receive description updates only; names, tags, statuses, and links remain unchanged;
+     * - If FreeOTP is absent, append it to the existing passwords and two-factor authentication category;
+     * - All other existing tool entries remain unchanged.
      */
     const REQUESTED_TOOL_DESCRIPTIONS = {
       "KeePassXC":
@@ -1213,7 +1213,7 @@
       return words.slice(0, 2).map((word) => word[0]).join("").toUpperCase();
     }
 
-    /* 从原 HTML 中准确提取 TOOL_CATEGORIES 数组，避免脆弱的简单正则。 */
+    /* Extract the TOOL_CATEGORIES array accurately from the original HTML instead of relying on a fragile simple regex. */
     function extractToolCategories(source) {
       const marker = "const TOOL_CATEGORIES";
       const markerIndex = source.indexOf(marker);
