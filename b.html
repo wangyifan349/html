@@ -1,0 +1,1453 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="A responsive, eye-comfortable directory of security tools.">
+  <meta name="theme-color" content="#100000">
+  <meta name="color-scheme" content="dark">
+  <title>OpenCipher · Security Tools</title>
+
+  <style>
+    /* =========================================================
+       红黑护眼配色：所有自定义界面色值的蓝色通道均为 0。
+       红色通道保持高值，绿色通道受到限制，避免黄褐色观感。
+       ========================================================= */
+    :root {
+      --bg: #000000;
+      --bg-deep: #000000;
+      --surface: rgba(220, 40, 0, 0.08);
+      --surface-2: rgba(220, 40, 0, 0.12);
+      --surface-3: rgba(220, 40, 0, 0.16);
+      --text: #f04a00;
+      --text-strong: #ff5a00;
+      --muted: #d13a00;
+      --muted-2: #c82a00;
+      --line: rgba(255, 40, 0, 0.20);
+      --line-strong: rgba(255, 48, 0, 0.42);
+      --accent: #ff2800;
+      --accent-strong: #ff3a00;
+      --accent-soft: rgba(255, 40, 0, 0.15);
+      --red-secondary: #d92800;
+      --red-secondary-soft: rgba(217, 40, 0, 0.16);
+      --red-alert: #ff2800;
+      --red-alert-soft: rgba(255, 40, 0, 0.16);
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --radius: 16px;
+      --page-width: 1760px;
+      --header-height: 58px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-color: var(--accent) var(--bg-deep);
+    }
+
+    body {
+      min-width: 280px;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% -10%, rgba(255, 40, 0, 0.12), transparent 35rem),
+        radial-gradient(circle at 90% 5%, rgba(217, 40, 0, 0.09), transparent 30rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Noto Sans", Arial, sans-serif;
+      line-height: 1.5;
+      accent-color: var(--accent);
+    }
+
+    ::selection {
+      color: #000000;
+      background: var(--accent-strong);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a,
+    input,
+    summary {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid rgba(255, 58, 0, 0.82);
+      outline-offset: 3px;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 32px), var(--page-width));
+      margin-inline: auto;
+    }
+
+    /* 顶部导航保持轻薄，避免占据手机可视高度。 */
+    .site-header {
+      position: fixed;
+      z-index: 50;
+      inset: 0 0 auto;
+      height: var(--header-height);
+      background: rgba(0, 0, 0, 0.93);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-strong);
+      font-weight: 850;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: #000000;
+      background: linear-gradient(145deg, var(--accent-strong), var(--red-secondary));
+      border: 1px solid rgba(255, 70, 0, 0.36);
+      border-radius: 11px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+      font-size: 17px;
+    }
+
+    .header-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    /* Hero 比原页面更紧凑，让工具列表更快进入屏幕。 */
+    .hero {
+      padding: calc(var(--header-height) + 36px) 0 28px;
+      border-bottom: 1px solid rgba(255, 40, 0, 0.10);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--text-strong);
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.94rem, 1.5vw, 1.08rem);
+    }
+
+    /* 桌面端工具栏吸顶；移动端会取消吸顶，防止遮挡工具。 */
+    .toolbar-wrap {
+      position: sticky;
+      z-index: 40;
+      top: calc(var(--header-height) + 10px);
+      margin-top: -1px;
+      padding: 12px 0 0;
+    }
+
+    .toolbar {
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.95);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .toolbar-main {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 0;
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      color: var(--muted-2);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 44px 10px 42px;
+      color: var(--text-strong);
+      background: var(--bg-deep);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .search-input::placeholder {
+      color: var(--muted-2);
+    }
+
+    /* 浏览器原生输入控件也统一使用红色通道，避免系统默认蓝色。 */
+    .search-input {
+      caret-color: var(--accent-strong);
+    }
+
+    .search-input::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      outline: none;
+    }
+
+    .clear-search {
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: var(--muted);
+      background: transparent;
+      border: 0;
+      border-radius: 9px;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+
+    .clear-search:hover {
+      color: var(--text-strong);
+      background: var(--accent-soft);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-button {
+      min-height: 42px;
+      padding: 9px 13px;
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      font-size: 0.82rem;
+      font-weight: 760;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .action-button:hover {
+      background: var(--surface-3);
+      border-color: var(--line-strong);
+      transform: translateY(-1px);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      padding-bottom: 1px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-width: none;
+    }
+
+    .filter-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-chip {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      color: var(--muted);
+      background: rgba(255, 40, 0, 0.025);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 720;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-chip:hover {
+      color: var(--text-strong);
+      border-color: var(--line-strong);
+    }
+
+    .filter-chip[aria-pressed="true"] {
+      color: #000000;
+      background: linear-gradient(135deg, var(--accent-strong), #c92800);
+      border-color: var(--accent-strong);
+    }
+
+    .content-section {
+      padding: 18px 0 56px;
+    }
+
+    .result-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .result-bar strong {
+      color: var(--accent-strong);
+    }
+
+    .security-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding: 11px 13px;
+      color: #e74700;
+      background: var(--red-secondary-soft);
+      border: 1px solid rgba(217, 40, 0, 0.30);
+      border-radius: 13px;
+      font-size: 0.82rem;
+    }
+
+    .security-note-symbol {
+      flex: 0 0 auto;
+      color: #ff3200;
+      font-weight: 900;
+    }
+
+    .category-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .category {
+      overflow: clip;
+      background: rgba(0, 0, 0, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .category[open] {
+      border-color: rgba(255, 40, 0, 0.31);
+    }
+
+    .category-summary {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) auto 28px;
+      gap: 11px;
+      align-items: center;
+      min-height: 66px;
+      padding: 10px 13px;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .category-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .category-summary:hover {
+      background: rgba(255, 40, 0, 0.055);
+    }
+
+    .category-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: var(--accent-strong);
+      background: var(--accent-soft);
+      border: 1px solid rgba(255, 40, 0, 0.28);
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .category-copy {
+      min-width: 0;
+    }
+
+    .category-title {
+      display: block;
+      overflow: hidden;
+      color: var(--text-strong);
+      font-size: 0.99rem;
+      font-weight: 820;
+      letter-spacing: -0.01em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category-subtitle {
+      display: block;
+      overflow: hidden;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .category-count {
+      padding: 4px 8px;
+      color: #ff4a00;
+      background: var(--accent-soft);
+      border: 1px solid rgba(255, 40, 0, 0.24);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .category-chevron {
+      color: var(--muted);
+      font-size: 1.1rem;
+      text-align: center;
+      transition: transform 180ms ease;
+    }
+
+    .category[open] .category-chevron {
+      transform: rotate(90deg);
+    }
+
+    .category-body {
+      padding: 11px;
+      background: rgba(0, 0, 0, 0.42);
+      border-top: 1px solid var(--line);
+    }
+
+    /* 自动网格：宽屏最多利用横向空间，小屏自然降为单列。 */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 10px;
+    }
+
+    .tool-card {
+      display: flex;
+      min-width: 0;
+      min-height: 100%;
+      flex-direction: column;
+      padding: 15px;
+      background:
+        linear-gradient(145deg, rgba(255, 40, 0, 0.035), transparent),
+        var(--surface);
+      border: 1px solid rgba(255, 40, 0, 0.17);
+      border-radius: 14px;
+      transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+    }
+
+    .tool-card:hover {
+      border-color: var(--line-strong);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
+      transform: translateY(-2px);
+    }
+
+    .tool-head {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .tool-logo {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      color: #ff5000;
+      background: linear-gradient(145deg, rgba(255, 40, 0, 0.22), rgba(217, 40, 0, 0.13));
+      border: 1px solid rgba(255, 40, 0, 0.26);
+      border-radius: 11px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .tool-title-wrap {
+      min-width: 0;
+    }
+
+    .tool-name {
+      overflow-wrap: anywhere;
+      margin: 0;
+      color: var(--text-strong);
+      font-size: 0.98rem;
+      font-weight: 820;
+      line-height: 1.2;
+    }
+
+    .tool-kind {
+      margin-top: 3px;
+      color: var(--muted-2);
+      font-size: 0.73rem;
+      line-height: 1.25;
+    }
+
+    .status-badge {
+      align-self: start;
+      padding: 4px 7px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 820;
+      white-space: nowrap;
+    }
+
+    .status-priority {
+      color: #000000;
+      background: #ff3a00;
+      border: 1px solid #ff5200;
+    }
+
+    .status-mature {
+      color: #ff5a00;
+      background: rgba(200, 40, 0, 0.22);
+      border: 1px solid rgba(255, 50, 0, 0.40);
+    }
+
+    .status-special {
+      color: #ff4a00;
+      background: rgba(220, 40, 0, 0.22);
+      border: 1px solid rgba(255, 42, 0, 0.38);
+    }
+
+    .status-caution {
+      color: #ff3600;
+      background: var(--red-alert-soft);
+      border: 1px solid rgba(255, 40, 0, 0.38);
+    }
+
+    .tool-desc {
+      margin: 0 0 11px;
+      color: #df4300;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 0 0 13px;
+    }
+
+    .tool-tag {
+      padding: 3px 7px;
+      color: #c83600;
+      background: rgba(255, 40, 0, 0.035);
+      border: 1px solid rgba(255, 40, 0, 0.15);
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+
+    .tool-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .project-link,
+    .source-link {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 820;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .project-link {
+      gap: 7px;
+      padding: 8px 11px;
+      color: #000000;
+      background: linear-gradient(135deg, var(--accent-strong), #c92800);
+      border: 1px solid rgba(255, 65, 0, 0.30);
+    }
+
+    .project-link:hover {
+      box-shadow: 0 9px 22px rgba(0, 0, 0, 0.24);
+      transform: translateY(-1px);
+    }
+
+    .source-link {
+      width: 38px;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+    }
+
+    .source-link:hover {
+      color: var(--text-strong);
+      background: var(--surface-3);
+    }
+
+    .loading,
+    .empty-state,
+    .error-state {
+      padding: 44px 18px;
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.70);
+      border: 1px dashed var(--line-strong);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .loading strong,
+    .empty-state h2,
+    .error-state h2 {
+      color: var(--text-strong);
+    }
+
+    .loading-spinner {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto 12px;
+      border: 3px solid rgba(255, 40, 0, 0.22);
+      border-top-color: var(--accent-strong);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    footer {
+      padding: 22px 0 30px;
+      color: var(--muted-2);
+      border-top: 1px solid var(--line);
+      font-size: 0.78rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      color: var(--accent-strong);
+      font-weight: 800;
+    }
+
+    /* 手机专用控件默认隐藏，仅在窄屏启用。 */
+    .mobile-toolbar-head,
+    .mobile-filter-toggle {
+      display: none;
+    }
+
+    @media (max-width: 767.98px) {
+      /*
+       * 手机端采用“工具优先”模式：
+       * 1. 导航、Hero、说明和安全提示默认彻底隐藏；
+       * 2. 搜索与分类筛选放入按需打开的全屏抽屉；
+       * 3. 首屏只保留一条极薄的结果/筛选控制条；
+       * 4. 工具列表从页面顶部约 40px 处开始，最大化有效内容面积。
+       */
+      :root {
+        --header-height: 0px;
+      }
+
+      .page-shell {
+        width: calc(100% - 8px);
+      }
+
+      .site-header,
+      .hero,
+      .security-note {
+        display: none !important;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      /* 搜索筛选默认不占布局；点击“搜索 / 筛选”后才覆盖显示。 */
+      .toolbar-wrap {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.90);
+        backdrop-filter: blur(8px);
+      }
+
+      .toolbar-wrap.is-open {
+        display: block;
+      }
+
+      .toolbar {
+        position: absolute;
+        inset: 8px;
+        max-height: calc(100dvh - 16px);
+        padding: 10px;
+        overflow-y: auto;
+        background: var(--surface);
+        border-radius: 13px;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.46);
+      }
+
+      .mobile-toolbar-head {
+        display: flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 8px;
+        color: var(--text-strong);
+        font-size: 0.88rem;
+        font-weight: 800;
+      }
+
+      .mobile-toolbar-close {
+        min-width: 64px;
+        min-height: 34px;
+        padding: 5px 10px;
+        color: var(--text);
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        font-size: 0.76rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .toolbar-main {
+        display: block;
+      }
+
+      .toolbar-actions {
+        display: none;
+      }
+
+      .search-input {
+        min-height: 42px;
+        padding-block: 8px;
+      }
+
+      .filter-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 8px;
+        overflow: visible;
+      }
+
+      .filter-chip {
+        min-width: 0;
+        padding: 7px 8px;
+        overflow: hidden;
+        font-size: 0.70rem;
+        text-overflow: ellipsis;
+      }
+
+      body.mobile-filter-open {
+        overflow: hidden;
+      }
+
+      /* 工具内容从页面最上方开始。 */
+      .content-section {
+        padding: 4px 0 30px;
+      }
+
+      .result-bar {
+        min-height: 36px;
+        margin: 0 0 4px;
+        padding: 0 5px;
+        color: var(--muted);
+        font-size: 0.72rem;
+      }
+
+      #activeFilterLabel {
+        display: none;
+      }
+
+      .mobile-filter-toggle {
+        display: inline-flex;
+        min-height: 30px;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 9px;
+        color: #000000;
+        background: var(--accent-strong);
+        border: 1px solid rgba(255, 65, 0, 0.28);
+        border-radius: 8px;
+        font-size: 0.70rem;
+        font-weight: 850;
+        cursor: pointer;
+      }
+
+      .category-list {
+        gap: 4px;
+      }
+
+      .category {
+        border-radius: 9px;
+        box-shadow: none;
+      }
+
+      /* 分类栏只显示名称和箭头，移除图标、副标题和数量徽章。 */
+      .category-summary {
+        grid-template-columns: minmax(0, 1fr) 16px;
+        gap: 6px;
+        min-height: 38px;
+        padding: 5px 8px;
+      }
+
+      .category-icon,
+      .category-subtitle,
+      .category-count {
+        display: none;
+      }
+
+      .category-title {
+        font-size: 0.80rem;
+        line-height: 1.2;
+      }
+
+      .category-chevron {
+        font-size: 0.95rem;
+      }
+
+      .category-body {
+        padding: 4px;
+      }
+
+      .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      /* 工具卡片压缩非核心装饰，使一屏能看到更多真实工具。 */
+      .tool-card {
+        padding: 9px;
+        border-radius: 9px;
+      }
+
+      .tool-head {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 6px;
+        margin-bottom: 5px;
+      }
+
+      .tool-logo {
+        display: none;
+      }
+
+      .tool-name {
+        font-size: 0.86rem;
+      }
+
+      .tool-kind {
+        margin-top: 1px;
+        font-size: 0.63rem;
+      }
+
+      .status-badge {
+        padding: 2px 5px;
+        font-size: 0.54rem;
+      }
+
+      .tool-desc {
+        display: -webkit-box;
+        margin-bottom: 6px;
+        overflow: hidden;
+        font-size: 0.70rem;
+        line-height: 1.38;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .tag-list {
+        gap: 3px;
+        margin-bottom: 7px;
+      }
+
+      /* 手机上最多展示前三个标签，避免标签占据整张卡片。 */
+      .tool-tag {
+        padding: 2px 5px;
+        font-size: 0.54rem;
+      }
+
+      .tool-tag:nth-child(n + 4) {
+        display: none;
+      }
+
+      .project-link,
+      .source-link {
+        min-height: 32px;
+        border-radius: 8px;
+        font-size: 0.68rem;
+      }
+
+      .project-link {
+        padding: 6px 9px;
+      }
+
+      .source-link {
+        width: 32px;
+      }
+
+      footer {
+        padding: 15px 0 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <a class="brand" href="#top" aria-label="OpenCipher Security Tools home">
+        <span class="brand-mark" aria-hidden="true">◆</span>
+        <span>OpenCipher</span>
+      </a>
+      <span class="header-note">Security Tools Directory</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="page-shell">
+        <p class="eyebrow">Privacy · Security · Open Source</p>
+        <h1>Security Tools</h1>
+        <p class="hero-copy">
+          Browse by category or search for a specific project, platform, privacy feature, or use case.
+        </p>
+      </div>
+    </section>
+
+    <div id="toolToolbar" class="page-shell toolbar-wrap">
+      <section class="toolbar" aria-label="Search and category controls">
+        <div class="mobile-toolbar-head">
+          <span>Search and filter</span>
+          <button id="mobileFilterClose" class="mobile-toolbar-close" type="button">Close</button>
+        </div>
+
+        <div class="toolbar-main">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <label for="searchInput" class="sr-only" hidden>Search security tools</label>
+            <input
+              id="searchInput"
+              class="search-input"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="Search security tools..."
+              aria-describedby="resultSummary"
+            >
+            <button id="clearSearch" class="clear-search" type="button" aria-label="Clear search" title="Clear search">×</button>
+          </div>
+
+          <div class="toolbar-actions" aria-label="Category expansion controls">
+            <button id="collapseAll" class="action-button" type="button">Collapse all</button>
+            <button id="expandAll" class="action-button" type="button">Expand all</button>
+          </div>
+        </div>
+
+        <div id="filterRow" class="filter-row" aria-label="Category filters"></div>
+      </section>
+    </div>
+
+    <section class="content-section">
+      <div class="page-shell">
+        <div id="resultSummary" class="result-bar" aria-live="polite">
+          <span>Showing <strong id="visibleCount">0</strong> tools</span>
+          <span id="activeFilterLabel">All categories</span>
+          <button
+            id="mobileFilterToggle"
+            class="mobile-filter-toggle"
+            type="button"
+            aria-controls="toolToolbar"
+            aria-expanded="false"
+          >Search / Filter</button>
+        </div>
+
+        <aside class="security-note">
+          <span class="security-note-symbol" aria-hidden="true">!</span>
+          <span>
+            Use official project websites or repositories for downloads. Check the domain, release source,
+            supported platforms, and current maintenance status before installing software.
+          </span>
+        </aside>
+
+        <div id="loadingState" class="loading" role="status">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <strong>Loading security tools…</strong>
+        </div>
+
+        <div id="categoryList" class="category-list" hidden></div>
+
+        <section id="emptyState" class="empty-state" hidden>
+          <h2>No matching results</h2>
+          <p>Try a project name, platform, use case, or a tag such as open source, wallet, or privacy.</p>
+        </section>
+
+        <section id="errorState" class="error-state" hidden>
+          <h2>Tool data could not be loaded</h2>
+          <p id="errorMessage">Check the internet connection and reload the page.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-shell footer-inner">
+      <span><span class="footer-brand">OpenCipher</span> · Security Tools</span>
+      <span>Responsive layout · Red-black palette · Blue channel = 0</span>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    /*
+     * 数据来源说明：
+     * 原页面体积约 500 KB，工具数据已固定读取自当前版本的 GitHub 提交。
+     * 因为使用固定 commit，不会在你以后替换 security_tools.html 时产生递归读取。
+     * 若希望完全离线，可将该提交中的 TOOL_CATEGORIES 数组直接粘贴到本文件中。
+     */
+    const SOURCE_URL =
+      "https://raw.githubusercontent.com/wangyifan349/html/0f171ccd2307fbcc64f23381f569de28025a94e1/security_tools.html";
+
+    const STATUS_META = {
+      priority: { label: "Top Pick", className: "status-priority" },
+      mature: { label: "Established", className: "status-mature" },
+      special: { label: "Specialized", className: "status-special" },
+      caution: { label: "Use With Caution", className: "status-caution" }
+    };
+
+    /*
+     * 本次仅处理用户指定的密码管理器和两步验证器：
+     * - 已存在的指定工具只更新简介，不改变名称、标签、状态和链接；
+     * - FreeOTP 若原目录不存在，则追加到原来的密码与双重验证分类；
+     * - 其他所有既有工具条目保持原样。
+     */
+    const REQUESTED_TOOL_DESCRIPTIONS = {
+      "KeePassXC":
+        "A mainstream open-source local password vault for Windows, macOS, and Linux. It keeps KDBX databases under the user's control and pairs naturally with KeePassDX on Android for a flexible setup that does not require a proprietary cloud service.",
+      "KeePassDX":
+        "A widely used open-source KeePass-compatible password vault for Android. It opens and edits KDBX databases locally and complements KeePassXC when the user synchronizes the database through a storage method of their choice.",
+      "Bitwarden":
+        "One of the most widely used open-source password managers, backed by an established commercial service. It offers polished apps and browser extensions, convenient cross-platform synchronization, secure sharing, and optional self-hosting.",
+      "Aegis Authenticator":
+        "One of the most highly regarded open-source authenticator apps for Android. It stores HOTP and TOTP tokens in an encrypted local vault and supports protected exports and backups for safer account recovery.",
+      "2FAS":
+        "A popular open-source authenticator for Android and iOS with a straightforward interface and broad HOTP and TOTP compatibility. Its mobile apps and browser integration make everyday two-step verification easier across devices."
+    };
+
+    const FREEOTP_TOOL = {
+      name: "FreeOTP",
+      kind: "Open-Standard Two-Factor Authenticator",
+      description:
+        "A long-established open-source authenticator for generating standards-based HOTP and TOTP codes. It provides a simple local approach to two-step verification and has official Android and iOS projects.",
+      tags: ["Android & iOS", "2FA", "HOTP & TOTP", "Open Source"],
+      status: "mature",
+      url: "https://freeotp.github.io/",
+      source: "https://github.com/freeotp"
+    };
+
+    const state = {
+      categories: [],
+      query: "",
+      category: "all"
+    };
+
+    const elements = {
+      searchInput: document.getElementById("searchInput"),
+      clearSearch: document.getElementById("clearSearch"),
+      collapseAll: document.getElementById("collapseAll"),
+      expandAll: document.getElementById("expandAll"),
+      filterRow: document.getElementById("filterRow"),
+      categoryList: document.getElementById("categoryList"),
+      loadingState: document.getElementById("loadingState"),
+      emptyState: document.getElementById("emptyState"),
+      errorState: document.getElementById("errorState"),
+      errorMessage: document.getElementById("errorMessage"),
+      visibleCount: document.getElementById("visibleCount"),
+      activeFilterLabel: document.getElementById("activeFilterLabel"),
+      toolbarWrap: document.getElementById("toolToolbar"),
+      mobileFilterToggle: document.getElementById("mobileFilterToggle"),
+      mobileFilterClose: document.getElementById("mobileFilterClose")
+    };
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function initials(name) {
+      const words = String(name)
+        .replace(/[^\p{L}\p{N}\s]/gu, "")
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+
+      if (!words.length) return "ST";
+      if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+      return words.slice(0, 2).map((word) => word[0]).join("").toUpperCase();
+    }
+
+    /* 从原 HTML 中准确提取 TOOL_CATEGORIES 数组，避免脆弱的简单正则。 */
+    function extractToolCategories(source) {
+      const marker = "const TOOL_CATEGORIES";
+      const markerIndex = source.indexOf(marker);
+      if (markerIndex < 0) throw new Error("TOOL_CATEGORIES was not found in the source file.");
+
+      const start = source.indexOf("[", markerIndex);
+      if (start < 0) throw new Error("The tool data array has no opening bracket.");
+
+      let depth = 0;
+      let inString = false;
+      let escaped = false;
+
+      for (let index = start; index < source.length; index += 1) {
+        const char = source[index];
+
+        if (inString) {
+          if (escaped) {
+            escaped = false;
+          } else if (char === "\\") {
+            escaped = true;
+          } else if (char === '"') {
+            inString = false;
+          }
+          continue;
+        }
+
+        if (char === '"') {
+          inString = true;
+        } else if (char === "[") {
+          depth += 1;
+        } else if (char === "]") {
+          depth -= 1;
+          if (depth === 0) {
+            return JSON.parse(source.slice(start, index + 1));
+          }
+        }
+      }
+
+      throw new Error("The tool data array is incomplete.");
+    }
+
+    function applyRequestedToolAdditions(categories) {
+      const passwordCategory = categories.find((category) => category.id === "password-auth");
+      if (!passwordCategory) return categories;
+
+      passwordCategory.tools.forEach((tool) => {
+        const replacement = REQUESTED_TOOL_DESCRIPTIONS[tool.name];
+        if (replacement) tool.description = replacement;
+      });
+
+      const hasFreeOTP = passwordCategory.tools.some(
+        (tool) => tool.name.toLocaleLowerCase() === FREEOTP_TOOL.name.toLocaleLowerCase()
+      );
+
+      if (!hasFreeOTP) passwordCategory.tools.push({ ...FREEOTP_TOOL });
+      return categories;
+    }
+
+    function searchableText(tool, category) {
+      return [
+        tool.name,
+        tool.kind,
+        tool.description,
+        ...(tool.tags || []),
+        category.title,
+        category.subtitle
+      ].join(" ").toLocaleLowerCase();
+    }
+
+    function filteredCategories() {
+      const query = state.query.trim().toLocaleLowerCase();
+
+      return state.categories
+        .filter((category) => state.category === "all" || category.id === state.category)
+        .map((category) => ({
+          ...category,
+          tools: category.tools.filter((tool) => !query || searchableText(tool, category).includes(query))
+        }))
+        .filter((category) => category.tools.length > 0);
+    }
+
+    function toolCardTemplate(tool) {
+      const status = STATUS_META[tool.status] || STATUS_META.mature;
+      const tags = (tool.tags || [])
+        .map((tag) => `<span class="tool-tag">${escapeHtml(tag)}</span>`)
+        .join("");
+
+      return `
+        <article class="tool-card">
+          <div class="tool-head">
+            <div class="tool-logo" aria-hidden="true">${escapeHtml(initials(tool.name))}</div>
+            <div class="tool-title-wrap">
+              <h3 class="tool-name">${escapeHtml(tool.name)}</h3>
+              <div class="tool-kind">${escapeHtml(tool.kind || "Security tool")}</div>
+            </div>
+            <span class="status-badge ${status.className}">${status.label}</span>
+          </div>
+
+          <p class="tool-desc">${escapeHtml(tool.description || "")}</p>
+          <div class="tag-list">${tags}</div>
+
+          <div class="tool-actions">
+            <a
+              class="project-link"
+              href="${escapeHtml(tool.url)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit project <span aria-hidden="true">↗</span>
+            </a>
+
+            ${tool.source ? `
+              <a
+                class="source-link"
+                href="${escapeHtml(tool.source)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View source code"
+                aria-label="View source code for ${escapeHtml(tool.name)}"
+              >&lt;/&gt;</a>
+            ` : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    function categoryTemplate(category, index) {
+      const shouldOpen = Boolean(state.query) || (state.category !== "all") || index === 0;
+      const tools = category.tools.map(toolCardTemplate).join("");
+      const iconText = category.title.trim().slice(0, 1).toUpperCase();
+
+      return `
+        <details class="category" data-category-id="${escapeHtml(category.id)}" ${shouldOpen ? "open" : ""}>
+          <summary class="category-summary">
+            <span class="category-icon" aria-hidden="true">${escapeHtml(iconText)}</span>
+            <span class="category-copy">
+              <span class="category-title">${escapeHtml(category.title)}</span>
+              <span class="category-subtitle">${escapeHtml(category.subtitle || "")}</span>
+            </span>
+            <span class="category-count">${category.tools.length}</span>
+            <span class="category-chevron" aria-hidden="true">›</span>
+          </summary>
+          <div class="category-body">
+            <div class="tool-grid">${tools}</div>
+          </div>
+        </details>
+      `;
+    }
+
+    function renderFilters() {
+      const filters = [
+        { id: "all", title: "All categories" },
+        ...state.categories.map((category) => ({ id: category.id, title: category.title }))
+      ];
+
+      elements.filterRow.innerHTML = filters.map((filter) => `
+        <button
+          class="filter-chip"
+          type="button"
+          data-category="${escapeHtml(filter.id)}"
+          aria-pressed="${state.category === filter.id}"
+        >${escapeHtml(filter.title)}</button>
+      `).join("");
+    }
+
+    function render() {
+      const categories = filteredCategories();
+      const total = categories.reduce((sum, category) => sum + category.tools.length, 0);
+      const activeCategory = state.categories.find((category) => category.id === state.category);
+
+      elements.visibleCount.textContent = String(total);
+      elements.activeFilterLabel.textContent = activeCategory ? activeCategory.title : "All categories";
+      elements.categoryList.innerHTML = categories.map(categoryTemplate).join("");
+      elements.categoryList.hidden = total === 0;
+      elements.emptyState.hidden = total !== 0;
+      renderFilters();
+    }
+
+    function isMobileLayout() {
+      return window.matchMedia("(max-width: 767.98px)").matches;
+    }
+
+    function setMobileFilterOpen(isOpen) {
+      elements.toolbarWrap.classList.toggle("is-open", isOpen);
+      document.body.classList.toggle("mobile-filter-open", isOpen);
+      elements.mobileFilterToggle.setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen) {
+        window.setTimeout(() => elements.searchInput.focus(), 30);
+      } else {
+        elements.mobileFilterToggle.focus({ preventScroll: true });
+      }
+    }
+
+    elements.mobileFilterToggle.addEventListener("click", () => {
+      setMobileFilterOpen(true);
+    });
+
+    elements.mobileFilterClose.addEventListener("click", () => {
+      setMobileFilterOpen(false);
+    });
+
+    elements.toolbarWrap.addEventListener("click", (event) => {
+      if (event.target === elements.toolbarWrap) setMobileFilterOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && elements.toolbarWrap.classList.contains("is-open")) {
+        setMobileFilterOpen(false);
+      }
+    });
+
+    let searchTimer = 0;
+    elements.searchInput.addEventListener("input", (event) => {
+      window.clearTimeout(searchTimer);
+      searchTimer = window.setTimeout(() => {
+        state.query = event.target.value;
+        render();
+      }, 90);
+    });
+
+    elements.searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && isMobileLayout()) {
+        event.preventDefault();
+        state.query = elements.searchInput.value;
+        render();
+        setMobileFilterOpen(false);
+      }
+    });
+
+    elements.clearSearch.addEventListener("click", () => {
+      elements.searchInput.value = "";
+      state.query = "";
+      render();
+      elements.searchInput.focus();
+    });
+
+    elements.filterRow.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+      state.category = button.dataset.category;
+      render();
+      if (isMobileLayout()) setMobileFilterOpen(false);
+    });
+
+    elements.expandAll.addEventListener("click", () => {
+      elements.categoryList.querySelectorAll("details").forEach((details) => {
+        details.open = true;
+      });
+    });
+
+    elements.collapseAll.addEventListener("click", () => {
+      elements.categoryList.querySelectorAll("details").forEach((details) => {
+        details.open = false;
+      });
+    });
+
+    async function loadData() {
+      try {
+        const response = await fetch(SOURCE_URL, { cache: "force-cache" });
+        if (!response.ok) throw new Error(`Source request failed with HTTP ${response.status}.`);
+
+        const source = await response.text();
+        state.categories = applyRequestedToolAdditions(extractToolCategories(source));
+
+        elements.loadingState.hidden = true;
+        elements.categoryList.hidden = false;
+        render();
+      } catch (error) {
+        console.error(error);
+        elements.loadingState.hidden = true;
+        elements.errorState.hidden = false;
+        elements.errorMessage.textContent =
+          `${error.message} This version loads the original tool catalog from a fixed GitHub commit.`;
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
